@@ -21740,154 +21740,153 @@ LOAD c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x000000000802a118                . = ALIGN (0x4)
 
 FontFlashSection
-                0x000000000802a118     0x3d16
+                0x000000000802a118     0x3f1a
  FontFlashSection
                 0x000000000802a118       0x5b TouchGFX/generated/fonts/src/Font_Asap_Bold_10_4bpp_0.o
                 0x000000000802a118                unicodes_Asap_Bold_10_4bpp_0
  *fill*         0x000000000802a173        0x1 
  FontFlashSection
-                0x000000000802a174      0x325 TouchGFX/generated/fonts/src/Font_Asap_Bold_12_4bpp_0.o
+                0x000000000802a174      0x105 TouchGFX/generated/fonts/src/Font_Asap_Bold_12_4bpp_0.o
                 0x000000000802a174                unicodes_Asap_Bold_12_4bpp_0
- *fill*         0x000000000802a499        0x3 
+ *fill*         0x000000000802a279        0x3 
  FontFlashSection
-                0x000000000802a49c      0x2de TouchGFX/generated/fonts/src/Font_Asap_Bold_18_4bpp_0.o
-                0x000000000802a49c                unicodes_Asap_Bold_18_4bpp_0
- *fill*         0x000000000802a77a        0x2 
+                0x000000000802a27c      0x708 TouchGFX/generated/fonts/src/Font_Asap_Bold_18_4bpp_0.o
+                0x000000000802a27c                unicodes_Asap_Bold_18_4bpp_0
  FontFlashSection
-                0x000000000802a77c      0x3cc TouchGFX/generated/fonts/src/Font_Asap_Bold_21_4bpp_0.o
-                0x000000000802a77c                unicodes_Asap_Bold_21_4bpp_0
+                0x000000000802a984      0x3cc TouchGFX/generated/fonts/src/Font_Asap_Bold_21_4bpp_0.o
+                0x000000000802a984                unicodes_Asap_Bold_21_4bpp_0
  FontFlashSection
-                0x000000000802ab48      0x6dd TouchGFX/generated/fonts/src/Font_Asap_Bold_30_4bpp_0.o
-                0x000000000802ab48                unicodes_Asap_Bold_30_4bpp_0
- *fill*         0x000000000802b225        0x3 
+                0x000000000802ad50      0x6ce TouchGFX/generated/fonts/src/Font_Asap_Bold_30_4bpp_0.o
+                0x000000000802ad50                unicodes_Asap_Bold_30_4bpp_0
+ *fill*         0x000000000802b41e        0x2 
  FontFlashSection
-                0x000000000802b228      0xc26 TouchGFX/generated/fonts/src/Font_Asap_Bold_40_4bpp_0.o
-                0x000000000802b228                unicodes_Asap_Bold_40_4bpp_0
- *fill*         0x000000000802be4e        0x2 
+                0x000000000802b420      0xc42 TouchGFX/generated/fonts/src/Font_Asap_Bold_40_4bpp_0.o
+                0x000000000802b420                unicodes_Asap_Bold_40_4bpp_0
+ *fill*         0x000000000802c062        0x2 
  FontFlashSection
-                0x000000000802be50     0x1a87 TouchGFX/generated/fonts/src/Font_Asap_Bold_60_4bpp_0.o
-                0x000000000802be50                unicodes_Asap_Bold_60_4bpp_0
- *fill*         0x000000000802d8d7        0x1 
+                0x000000000802c064     0x1a87 TouchGFX/generated/fonts/src/Font_Asap_Bold_60_4bpp_0.o
+                0x000000000802c064                unicodes_Asap_Bold_60_4bpp_0
+ *fill*         0x000000000802daeb        0x1 
  FontFlashSection
-                0x000000000802d8d8        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_10_4bpp.o
-                0x000000000802d8d8                kerning_Asap_Bold_10_4bpp
+                0x000000000802daec        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_10_4bpp.o
+                0x000000000802daec                kerning_Asap_Bold_10_4bpp
  FontFlashSection
-                0x000000000802d8dc        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_12_4bpp.o
-                0x000000000802d8dc                kerning_Asap_Bold_12_4bpp
+                0x000000000802daf0        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_12_4bpp.o
+                0x000000000802daf0                kerning_Asap_Bold_12_4bpp
  FontFlashSection
-                0x000000000802d8e0        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_18_4bpp.o
-                0x000000000802d8e0                kerning_Asap_Bold_18_4bpp
+                0x000000000802daf4       0x10 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_18_4bpp.o
+                0x000000000802daf4                kerning_Asap_Bold_18_4bpp
  FontFlashSection
-                0x000000000802d8e4        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_21_4bpp.o
-                0x000000000802d8e4                kerning_Asap_Bold_21_4bpp
+                0x000000000802db04        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_21_4bpp.o
+                0x000000000802db04                kerning_Asap_Bold_21_4bpp
  FontFlashSection
-                0x000000000802d8e8        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_30_4bpp.o
-                0x000000000802d8e8                kerning_Asap_Bold_30_4bpp
+                0x000000000802db08        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_30_4bpp.o
+                0x000000000802db08                kerning_Asap_Bold_30_4bpp
  FontFlashSection
-                0x000000000802d8ec        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_40_4bpp.o
-                0x000000000802d8ec                kerning_Asap_Bold_40_4bpp
+                0x000000000802db0c        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_40_4bpp.o
+                0x000000000802db0c                kerning_Asap_Bold_40_4bpp
  FontFlashSection
-                0x000000000802d8f0        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_60_4bpp.o
-                0x000000000802d8f0                kerning_Asap_Bold_60_4bpp
+                0x000000000802db10        0x4 TouchGFX/generated/fonts/src/Kerning_Asap_Bold_60_4bpp.o
+                0x000000000802db10                kerning_Asap_Bold_60_4bpp
  FontFlashSection
-                0x000000000802d8f4       0x38 TouchGFX/generated/fonts/src/Table_Asap_Bold_10_4bpp.o
-                0x000000000802d8f4                glyphs_Asap_Bold_10_4bpp
+                0x000000000802db14       0x38 TouchGFX/generated/fonts/src/Table_Asap_Bold_10_4bpp.o
+                0x000000000802db14                glyphs_Asap_Bold_10_4bpp
  FontFlashSection
-                0x000000000802d92c      0x17a TouchGFX/generated/fonts/src/Table_Asap_Bold_12_4bpp.o
-                0x000000000802d92c                glyphs_Asap_Bold_12_4bpp
- *fill*         0x000000000802daa6        0x2 
+                0x000000000802db4c       0x7e TouchGFX/generated/fonts/src/Table_Asap_Bold_12_4bpp.o
+                0x000000000802db4c                glyphs_Asap_Bold_12_4bpp
+ *fill*         0x000000000802dbca        0x2 
  FontFlashSection
-                0x000000000802daa8       0xb6 TouchGFX/generated/fonts/src/Table_Asap_Bold_18_4bpp.o
-                0x000000000802daa8                glyphs_Asap_Bold_18_4bpp
- *fill*         0x000000000802db5e        0x2 
+                0x000000000802dbcc      0x196 TouchGFX/generated/fonts/src/Table_Asap_Bold_18_4bpp.o
+                0x000000000802dbcc                glyphs_Asap_Bold_18_4bpp
+ *fill*         0x000000000802dd62        0x2 
  FontFlashSection
-                0x000000000802db60       0xb6 TouchGFX/generated/fonts/src/Table_Asap_Bold_21_4bpp.o
-                0x000000000802db60                glyphs_Asap_Bold_21_4bpp
- *fill*         0x000000000802dc16        0x2 
+                0x000000000802dd64       0xb6 TouchGFX/generated/fonts/src/Table_Asap_Bold_21_4bpp.o
+                0x000000000802dd64                glyphs_Asap_Bold_21_4bpp
+ *fill*         0x000000000802de1a        0x2 
  FontFlashSection
-                0x000000000802dc18       0xb6 TouchGFX/generated/fonts/src/Table_Asap_Bold_30_4bpp.o
-                0x000000000802dc18                glyphs_Asap_Bold_30_4bpp
- *fill*         0x000000000802dcce        0x2 
+                0x000000000802de1c       0xa8 TouchGFX/generated/fonts/src/Table_Asap_Bold_30_4bpp.o
+                0x000000000802de1c                glyphs_Asap_Bold_30_4bpp
  FontFlashSection
-                0x000000000802dcd0       0xa8 TouchGFX/generated/fonts/src/Table_Asap_Bold_40_4bpp.o
-                0x000000000802dcd0                glyphs_Asap_Bold_40_4bpp
+                0x000000000802dec4       0xb6 TouchGFX/generated/fonts/src/Table_Asap_Bold_40_4bpp.o
+                0x000000000802dec4                glyphs_Asap_Bold_40_4bpp
+ *fill*         0x000000000802df7a        0x2 
  FontFlashSection
-                0x000000000802dd78       0xb6 TouchGFX/generated/fonts/src/Table_Asap_Bold_60_4bpp.o
-                0x000000000802dd78                glyphs_Asap_Bold_60_4bpp
+                0x000000000802df7c       0xb6 TouchGFX/generated/fonts/src/Table_Asap_Bold_60_4bpp.o
+                0x000000000802df7c                glyphs_Asap_Bold_60_4bpp
 
 ExtFlashSection
-                0x000000000802de30    0x334f8
+                0x000000000802e034    0x334f8
  ExtFlashSection
-                0x000000000802de30    0x15888 TouchGFX/generated/images/src/fadeyellowred_small.o
-                0x000000000802de30                _fadeyellowred_small
+                0x000000000802e034    0x15888 TouchGFX/generated/images/src/fadeyellowred_small.o
+                0x000000000802e034                _fadeyellowred_small
  ExtFlashSection
-                0x00000000080436b8     0x1110 TouchGFX/generated/images/src/__designer/Blue_ProgressIndicators_bg_small_progress_indicator_bg_square_0_degrees.o
-                0x00000000080436b8                _blue_progressindicators_bg_small_progress_indicator_bg_square_0_degrees
+                0x00000000080438bc     0x1110 TouchGFX/generated/images/src/__designer/Blue_ProgressIndicators_bg_small_progress_indicator_bg_square_0_degrees.o
+                0x00000000080438bc                _blue_progressindicators_bg_small_progress_indicator_bg_square_0_degrees
  ExtFlashSection
-                0x00000000080447c8    0x1cb60 TouchGFX/generated/images/src/__designer/Blue_ProgressIndicators_fill_tiling_red_yellow_fadeyellowred_small_transparent.o
-                0x00000000080447c8                _blue_progressindicators_fill_tiling_red_yellow_fadeyellowred_small_transparent
+                0x00000000080449cc    0x1cb60 TouchGFX/generated/images/src/__designer/Blue_ProgressIndicators_fill_tiling_red_yellow_fadeyellowred_small_transparent.o
+                0x00000000080449cc                _blue_progressindicators_fill_tiling_red_yellow_fadeyellowred_small_transparent
 
 TextFlashSection
-                0x0000000008061328      0x240
+                0x000000000806152c      0x240
  TextFlashSection
-                0x0000000008061328       0xd8 TouchGFX/generated/texts/src/LanguageGb.o
-                0x0000000008061328                indicesGb
+                0x000000000806152c       0xd8 TouchGFX/generated/texts/src/LanguageGb.o
+                0x000000000806152c                indicesGb
  TextFlashSection
-                0x0000000008061400       0xf8 TouchGFX/generated/texts/src/Texts.o
-                0x0000000008061400                texts_all_languages
+                0x0000000008061604       0xf8 TouchGFX/generated/texts/src/Texts.o
+                0x0000000008061604                texts_all_languages
  TextFlashSection
-                0x00000000080614f8       0x70 TouchGFX/generated/texts/src/TypedTextDatabase.o
-                0x00000000080614f8                typedText_database_DEFAULT
-                0x0000000008061564                typedTextDatabaseArray
+                0x00000000080616fc       0x70 TouchGFX/generated/texts/src/TypedTextDatabase.o
+                0x00000000080616fc                typedText_database_DEFAULT
+                0x0000000008061768                typedTextDatabaseArray
 
-.ARM.extab      0x0000000008061568        0x0
-                0x0000000008061568                . = ALIGN (0x4)
+.ARM.extab      0x000000000806176c        0x0
+                0x000000000806176c                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008061568                . = ALIGN (0x4)
+                0x000000000806176c                . = ALIGN (0x4)
 
-.ARM            0x0000000008061568        0x8
-                0x0000000008061568                . = ALIGN (0x4)
-                0x0000000008061568                __exidx_start = .
+.ARM            0x000000000806176c        0x8
+                0x000000000806176c                . = ALIGN (0x4)
+                0x000000000806176c                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x0000000008061568        0x8 c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_udivmoddi4.o)
-                0x0000000008061570                __exidx_end = .
-                0x0000000008061570                . = ALIGN (0x4)
+ .ARM.exidx     0x000000000806176c        0x8 c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_udivmoddi4.o)
+                0x0000000008061774                __exidx_end = .
+                0x0000000008061774                . = ALIGN (0x4)
 
-.rel.dyn        0x0000000008061570        0x0
- .rel.iplt      0x0000000008061570        0x0 c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.rel.dyn        0x0000000008061774        0x0
+ .rel.iplt      0x0000000008061774        0x0 c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.preinit_array  0x0000000008061570        0x0
-                0x0000000008061570                . = ALIGN (0x4)
-                0x0000000008061570                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008061774        0x0
+                0x0000000008061774                . = ALIGN (0x4)
+                0x0000000008061774                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008061570                PROVIDE (__preinit_array_end = .)
-                0x0000000008061570                . = ALIGN (0x4)
+                0x0000000008061774                PROVIDE (__preinit_array_end = .)
+                0x0000000008061774                . = ALIGN (0x4)
 
-.init_array     0x0000000008061570       0x14
-                0x0000000008061570                . = ALIGN (0x4)
-                0x0000000008061570                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008061774       0x14
+                0x0000000008061774                . = ALIGN (0x4)
+                0x0000000008061774                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000008061570        0x4 c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
- .init_array    0x0000000008061574        0x4 TouchGFX/generated/texts/src/TypedTextDatabase.o
- .init_array    0x0000000008061578        0x4 TouchGFX/target/generated/TouchGFXConfiguration.o
- .init_array    0x000000000806157c        0x4 E:\prj\CanDisplaoy\new\stm32f746-canbus-display-master\Middlewares\ST\touchgfx\lib\core\cortex_m7\gcc\libtouchgfx-float-abi-hard.a(LCD.o)
- .init_array    0x0000000008061580        0x4 E:\prj\CanDisplaoy\new\stm32f746-canbus-display-master\Middlewares\ST\touchgfx\lib\core\cortex_m7\gcc\libtouchgfx-float-abi-hard.a(Application.o)
-                0x0000000008061584                PROVIDE (__init_array_end = .)
-                0x0000000008061584                . = ALIGN (0x4)
+ .init_array    0x0000000008061774        0x4 c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .init_array    0x0000000008061778        0x4 TouchGFX/generated/texts/src/TypedTextDatabase.o
+ .init_array    0x000000000806177c        0x4 TouchGFX/target/generated/TouchGFXConfiguration.o
+ .init_array    0x0000000008061780        0x4 E:\prj\CanDisplaoy\new\stm32f746-canbus-display-master\Middlewares\ST\touchgfx\lib\core\cortex_m7\gcc\libtouchgfx-float-abi-hard.a(LCD.o)
+ .init_array    0x0000000008061784        0x4 E:\prj\CanDisplaoy\new\stm32f746-canbus-display-master\Middlewares\ST\touchgfx\lib\core\cortex_m7\gcc\libtouchgfx-float-abi-hard.a(Application.o)
+                0x0000000008061788                PROVIDE (__init_array_end = .)
+                0x0000000008061788                . = ALIGN (0x4)
 
-.fini_array     0x0000000008061584        0x8
-                0x0000000008061584                . = ALIGN (0x4)
+.fini_array     0x0000000008061788        0x8
+                0x0000000008061788                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000008061584        0x4 c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
- .fini_array    0x0000000008061588        0x4 TouchGFX/target/generated/TouchGFXConfiguration.o
+ .fini_array    0x0000000008061788        0x4 c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .fini_array    0x000000000806178c        0x4 TouchGFX/target/generated/TouchGFXConfiguration.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x000000000806158c                . = ALIGN (0x4)
-                0x000000000806158c                _sidata = LOADADDR (.data)
+                0x0000000008061790                . = ALIGN (0x4)
+                0x0000000008061790                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000      0x114 load address 0x000000000806158c
+.data           0x0000000020000000      0x114 load address 0x0000000008061790
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -21990,11 +21989,11 @@ TextFlashSection
                 0x0000000020000114                . = ALIGN (0x4)
                 0x0000000020000114                _edata = .
 
-.igot.plt       0x0000000020000114        0x0 load address 0x00000000080616a0
+.igot.plt       0x0000000020000114        0x0 load address 0x00000000080618a4
  .igot.plt      0x0000000020000114        0x0 c:/st/stm32cubeide_1.3.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
                 0x0000000020000114                . = ALIGN (0x4)
 
-.bss            0x0000000020000114     0xcb1c load address 0x00000000080616a0
+.bss            0x0000000020000114     0xcb1c load address 0x00000000080618a4
                 0x0000000020000114                _sbss = .
                 0x0000000020000114                __bss_start__ = _sbss
  *(.bss)
@@ -22405,7 +22404,7 @@ TextFlashSection
                 0x000000002000cc30                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x000000002000cc30      0x600 load address 0x00000000080616a0
+                0x000000002000cc30      0x600 load address 0x00000000080618a4
                 0x000000002000cc30                . = ALIGN (0x8)
                 0x000000002000cc30                PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)

@@ -163,7 +163,7 @@ void SecondTask(void const* argument)
 	xQueueSend(settingsMessageQ, &settings_val,0);
 	osDelay(150);
 
-	static const int demo_mode = 0;
+	static const int demo_mode = 1;
 	for(;;)
 	{
 		if(demo_mode)

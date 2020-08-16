@@ -45,7 +45,6 @@ TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/main_screen \
 TouchGFX/build/MINGW32_NT-6.2/generated/simulator/src \
 TouchGFX/build/MINGW32_NT-6.2/gui/src/common \
 TouchGFX/build/MINGW32_NT-6.2/gui/src/main_screen \
-TouchGFX/build/MINGW32_NT-6.2/gui/src/model \
 TouchGFX/generated/fonts/src \
 TouchGFX/generated/gui_generated/src/common \
 TouchGFX/generated/gui_generated/src/main_screen \

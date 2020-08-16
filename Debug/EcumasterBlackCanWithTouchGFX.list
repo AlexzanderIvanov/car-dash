@@ -9,27 +9,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   2 .rodata       00004338  08025de0  08025de0  00035de0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 FontFlashSection 00003d16  0802a118  0802a118  0003a118  2**2
+  3 FontFlashSection 00003f1a  0802a118  0802a118  0003a118  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 ExtFlashSection 000334f8  0802de30  0802de30  0003de30  2**2
+  4 ExtFlashSection 000334f8  0802e034  0802e034  0003e034  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 TextFlashSection 00000240  08061328  08061328  00071328  2**2
+  5 TextFlashSection 00000240  0806152c  0806152c  0007152c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  6 .ARM.extab    00000000  08061568  08061568  00080114  2**0
+  6 .ARM.extab    00000000  0806176c  0806176c  00080114  2**0
                   CONTENTS
-  7 .ARM          00000008  08061568  08061568  00071568  2**2
+  7 .ARM          00000008  0806176c  0806176c  0007176c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .preinit_array 00000000  08061570  08061570  00080114  2**0
+  8 .preinit_array 00000000  08061774  08061774  00080114  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .init_array   00000014  08061570  08061570  00071570  2**2
+  9 .init_array   00000014  08061774  08061774  00071774  2**2
                   CONTENTS, ALLOC, LOAD, DATA
- 10 .fini_array   00000008  08061584  08061584  00071584  2**2
+ 10 .fini_array   00000008  08061788  08061788  00071788  2**2
                   CONTENTS, ALLOC, LOAD, DATA
- 11 .data         00000114  20000000  0806158c  00080000  2**2
+ 11 .data         00000114  20000000  08061790  00080000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
- 12 .bss          0000cb1c  20000114  080616a0  00080114  2**2
+ 12 .bss          0000cb1c  20000114  080618a4  00080114  2**2
                   ALLOC
- 13 ._user_heap_stack 00000600  2000cc30  080616a0  0008cc30  2**0
+ 13 ._user_heap_stack 00000600  2000cc30  080618a4  0008cc30  2**0
                   ALLOC
  14 .ARM.attributes 00000030  00000000  00000000  00080114  2**0
                   CONTENTS, READONLY
@@ -1017,7 +1017,7 @@ void SecondTask(void const* argument)
  8000b70:	2096      	movs	r0, #150	; 0x96
  8000b72:	f00b fbed 	bl	800c350 <osDelay>
 
-	static const int demo_mode = 0;
+	static const int demo_mode = 1;
 	for(;;)
 	{
 		if(demo_mode)
@@ -2030,12 +2030,12 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
  8001284:	4b76      	ldr	r3, [pc, #472]	; (8001460 <HAL_CAN_RxFifo0MsgPendingCallback+0x230>)
  8001286:	78db      	ldrb	r3, [r3, #3]
  8001288:	f887 3024 	strb.w	r3, [r7, #36]	; 0x24
-	 uint16_t map_in = (RxData[4] << 0) | (RxData[7] << 8);
+	 uint16_t map_in = (RxData[4] << 0) | (RxData[5] << 8);
  800128c:	4b74      	ldr	r3, [pc, #464]	; (8001460 <HAL_CAN_RxFifo0MsgPendingCallback+0x230>)
  800128e:	791b      	ldrb	r3, [r3, #4]
  8001290:	b21a      	sxth	r2, r3
  8001292:	4b73      	ldr	r3, [pc, #460]	; (8001460 <HAL_CAN_RxFifo0MsgPendingCallback+0x230>)
- 8001294:	79db      	ldrb	r3, [r3, #7]
+ 8001294:	795b      	ldrb	r3, [r3, #5]
  8001296:	021b      	lsls	r3, r3, #8
  8001298:	b21b      	sxth	r3, r3
  800129a:	4313      	orrs	r3, r2
@@ -8576,7 +8576,7 @@ LoopFillZerobss:
   ldr   sp, =_estack      /* set stack pointer */
  800386c:	20050000 	.word	0x20050000
   ldr  r3, =_sidata
- 8003870:	0806158c 	.word	0x0806158c
+ 8003870:	08061790 	.word	0x08061790
   ldr  r0, =_sdata
  8003874:	20000000 	.word	0x20000000
   ldr  r3, =_edata
@@ -42616,9 +42616,9 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_10_4bpp()
  800f304:	bd80      	pop	{r7, pc}
  800f306:	bf00      	nop
  800f308:	20008544 	.word	0x20008544
- 800f30c:	0802d8d8 	.word	0x0802d8d8
+ 800f30c:	0802daec 	.word	0x0802daec
  800f310:	0802662c 	.word	0x0802662c
- 800f314:	0802d8f4 	.word	0x0802d8f4
+ 800f314:	0802db14 	.word	0x0802db14
  800f318:	20008520 	.word	0x20008520
  800f31c:	0800f29d 	.word	0x0800f29d
 
@@ -42628,7 +42628,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_12_4bpp();
 
 touchgfx::GeneratedFont& getFont_Asap_Bold_12_4bpp()
 {
-    static touchgfx::GeneratedFont Asap_Bold_12_4bpp(glyphs_Asap_Bold_12_4bpp, 27, 12, 0, 4, 1, 0, 1, unicodes_Asap_Bold_12_4bpp, kerning_Asap_Bold_12_4bpp, 63, 0, 0);
+    static touchgfx::GeneratedFont Asap_Bold_12_4bpp(glyphs_Asap_Bold_12_4bpp, 9, 12, 0, 4, 1, 0, 1, unicodes_Asap_Bold_12_4bpp, kerning_Asap_Bold_12_4bpp, 63, 0, 0);
  800f320:	b580      	push	{r7, lr}
  800f322:	af00      	add	r7, sp, #0
  800f324:	4801      	ldr	r0, [pc, #4]	; (800f32c <__tcf_0+0xc>)
@@ -42641,7 +42641,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_12_4bpp()
  800f330:	b580      	push	{r7, lr}
  800f332:	b08a      	sub	sp, #40	; 0x28
  800f334:	af0a      	add	r7, sp, #40	; 0x28
-    static touchgfx::GeneratedFont Asap_Bold_12_4bpp(glyphs_Asap_Bold_12_4bpp, 27, 12, 0, 4, 1, 0, 1, unicodes_Asap_Bold_12_4bpp, kerning_Asap_Bold_12_4bpp, 63, 0, 0);
+    static touchgfx::GeneratedFont Asap_Bold_12_4bpp(glyphs_Asap_Bold_12_4bpp, 9, 12, 0, 4, 1, 0, 1, unicodes_Asap_Bold_12_4bpp, kerning_Asap_Bold_12_4bpp, 63, 0, 0);
  800f336:	4b15      	ldr	r3, [pc, #84]	; (800f38c <_Z25getFont_Asap_Bold_12_4bppv+0x5c>)
  800f338:	681b      	ldr	r3, [r3, #0]
  800f33a:	f003 0301 	and.w	r3, r3, #1
@@ -42668,7 +42668,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_12_4bpp()
  800f366:	2300      	movs	r3, #0
  800f368:	9300      	str	r3, [sp, #0]
  800f36a:	230c      	movs	r3, #12
- 800f36c:	221b      	movs	r2, #27
+ 800f36c:	2209      	movs	r2, #9
  800f36e:	490a      	ldr	r1, [pc, #40]	; (800f398 <_Z25getFont_Asap_Bold_12_4bppv+0x68>)
  800f370:	480a      	ldr	r0, [pc, #40]	; (800f39c <_Z25getFont_Asap_Bold_12_4bppv+0x6c>)
  800f372:	f7ff ff0b 	bl	800f18c <_ZN8touchgfx13GeneratedFontC1EPKNS_9GlyphNodeEtthhhhhPKPKhPKNS_11KerningNodeEttPKt>
@@ -42685,9 +42685,9 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_12_4bpp()
  800f388:	bd80      	pop	{r7, pc}
  800f38a:	bf00      	nop
  800f38c:	2000856c 	.word	0x2000856c
- 800f390:	0802d8dc 	.word	0x0802d8dc
+ 800f390:	0802daf0 	.word	0x0802daf0
  800f394:	08026630 	.word	0x08026630
- 800f398:	0802d92c 	.word	0x0802d92c
+ 800f398:	0802db4c 	.word	0x0802db4c
  800f39c:	20008548 	.word	0x20008548
  800f3a0:	0800f321 	.word	0x0800f321
 
@@ -42697,7 +42697,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_18_4bpp();
 
 touchgfx::GeneratedFont& getFont_Asap_Bold_18_4bpp()
 {
-    static touchgfx::GeneratedFont Asap_Bold_18_4bpp(glyphs_Asap_Bold_18_4bpp, 13, 18, 0, 4, 1, 0, 0, unicodes_Asap_Bold_18_4bpp, kerning_Asap_Bold_18_4bpp, 0, 0, 0);
+    static touchgfx::GeneratedFont Asap_Bold_18_4bpp(glyphs_Asap_Bold_18_4bpp, 29, 18, 0, 4, 1, 0, 1, unicodes_Asap_Bold_18_4bpp, kerning_Asap_Bold_18_4bpp, 0, 0, 0);
  800f3a4:	b580      	push	{r7, lr}
  800f3a6:	af00      	add	r7, sp, #0
  800f3a8:	4801      	ldr	r0, [pc, #4]	; (800f3b0 <__tcf_0+0xc>)
@@ -42710,7 +42710,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_18_4bpp()
  800f3b4:	b580      	push	{r7, lr}
  800f3b6:	b08a      	sub	sp, #40	; 0x28
  800f3b8:	af0a      	add	r7, sp, #40	; 0x28
-    static touchgfx::GeneratedFont Asap_Bold_18_4bpp(glyphs_Asap_Bold_18_4bpp, 13, 18, 0, 4, 1, 0, 0, unicodes_Asap_Bold_18_4bpp, kerning_Asap_Bold_18_4bpp, 0, 0, 0);
+    static touchgfx::GeneratedFont Asap_Bold_18_4bpp(glyphs_Asap_Bold_18_4bpp, 29, 18, 0, 4, 1, 0, 1, unicodes_Asap_Bold_18_4bpp, kerning_Asap_Bold_18_4bpp, 0, 0, 0);
  800f3ba:	4b15      	ldr	r3, [pc, #84]	; (800f410 <_Z25getFont_Asap_Bold_18_4bppv+0x5c>)
  800f3bc:	681b      	ldr	r3, [r3, #0]
  800f3be:	f003 0301 	and.w	r3, r3, #1
@@ -42726,7 +42726,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_18_4bpp()
  800f3d4:	9306      	str	r3, [sp, #24]
  800f3d6:	4b10      	ldr	r3, [pc, #64]	; (800f418 <_Z25getFont_Asap_Bold_18_4bppv+0x64>)
  800f3d8:	9305      	str	r3, [sp, #20]
- 800f3da:	2300      	movs	r3, #0
+ 800f3da:	2301      	movs	r3, #1
  800f3dc:	9304      	str	r3, [sp, #16]
  800f3de:	2300      	movs	r3, #0
  800f3e0:	9303      	str	r3, [sp, #12]
@@ -42737,7 +42737,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_18_4bpp()
  800f3ea:	2300      	movs	r3, #0
  800f3ec:	9300      	str	r3, [sp, #0]
  800f3ee:	2312      	movs	r3, #18
- 800f3f0:	220d      	movs	r2, #13
+ 800f3f0:	221d      	movs	r2, #29
  800f3f2:	490a      	ldr	r1, [pc, #40]	; (800f41c <_Z25getFont_Asap_Bold_18_4bppv+0x68>)
  800f3f4:	480a      	ldr	r0, [pc, #40]	; (800f420 <_Z25getFont_Asap_Bold_18_4bppv+0x6c>)
  800f3f6:	f7ff fec9 	bl	800f18c <_ZN8touchgfx13GeneratedFontC1EPKNS_9GlyphNodeEtthhhhhPKPKhPKNS_11KerningNodeEttPKt>
@@ -42754,9 +42754,9 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_18_4bpp()
  800f40c:	bd80      	pop	{r7, pc}
  800f40e:	bf00      	nop
  800f410:	20008594 	.word	0x20008594
- 800f414:	0802d8e0 	.word	0x0802d8e0
+ 800f414:	0802daf4 	.word	0x0802daf4
  800f418:	08026634 	.word	0x08026634
- 800f41c:	0802daa8 	.word	0x0802daa8
+ 800f41c:	0802dbcc 	.word	0x0802dbcc
  800f420:	20008570 	.word	0x20008570
  800f424:	0800f3a5 	.word	0x0800f3a5
 
@@ -42823,9 +42823,9 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_21_4bpp()
  800f490:	bd80      	pop	{r7, pc}
  800f492:	bf00      	nop
  800f494:	200085bc 	.word	0x200085bc
- 800f498:	0802d8e4 	.word	0x0802d8e4
+ 800f498:	0802db04 	.word	0x0802db04
  800f49c:	08026638 	.word	0x08026638
- 800f4a0:	0802db60 	.word	0x0802db60
+ 800f4a0:	0802dd64 	.word	0x0802dd64
  800f4a4:	20008598 	.word	0x20008598
  800f4a8:	0800f429 	.word	0x0800f429
 
@@ -42835,7 +42835,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_30_4bpp();
 
 touchgfx::GeneratedFont& getFont_Asap_Bold_30_4bpp()
 {
-    static touchgfx::GeneratedFont Asap_Bold_30_4bpp(glyphs_Asap_Bold_30_4bpp, 13, 30, 0, 4, 1, 0, 1, unicodes_Asap_Bold_30_4bpp, kerning_Asap_Bold_30_4bpp, 63, 0, 0);
+    static touchgfx::GeneratedFont Asap_Bold_30_4bpp(glyphs_Asap_Bold_30_4bpp, 12, 30, 0, 4, 1, 0, 1, unicodes_Asap_Bold_30_4bpp, kerning_Asap_Bold_30_4bpp, 63, 0, 0);
  800f4ac:	b580      	push	{r7, lr}
  800f4ae:	af00      	add	r7, sp, #0
  800f4b0:	4801      	ldr	r0, [pc, #4]	; (800f4b8 <__tcf_0+0xc>)
@@ -42848,7 +42848,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_30_4bpp()
  800f4bc:	b580      	push	{r7, lr}
  800f4be:	b08a      	sub	sp, #40	; 0x28
  800f4c0:	af0a      	add	r7, sp, #40	; 0x28
-    static touchgfx::GeneratedFont Asap_Bold_30_4bpp(glyphs_Asap_Bold_30_4bpp, 13, 30, 0, 4, 1, 0, 1, unicodes_Asap_Bold_30_4bpp, kerning_Asap_Bold_30_4bpp, 63, 0, 0);
+    static touchgfx::GeneratedFont Asap_Bold_30_4bpp(glyphs_Asap_Bold_30_4bpp, 12, 30, 0, 4, 1, 0, 1, unicodes_Asap_Bold_30_4bpp, kerning_Asap_Bold_30_4bpp, 63, 0, 0);
  800f4c2:	4b15      	ldr	r3, [pc, #84]	; (800f518 <_Z25getFont_Asap_Bold_30_4bppv+0x5c>)
  800f4c4:	681b      	ldr	r3, [r3, #0]
  800f4c6:	f003 0301 	and.w	r3, r3, #1
@@ -42875,7 +42875,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_30_4bpp()
  800f4f2:	2300      	movs	r3, #0
  800f4f4:	9300      	str	r3, [sp, #0]
  800f4f6:	231e      	movs	r3, #30
- 800f4f8:	220d      	movs	r2, #13
+ 800f4f8:	220c      	movs	r2, #12
  800f4fa:	490a      	ldr	r1, [pc, #40]	; (800f524 <_Z25getFont_Asap_Bold_30_4bppv+0x68>)
  800f4fc:	480a      	ldr	r0, [pc, #40]	; (800f528 <_Z25getFont_Asap_Bold_30_4bppv+0x6c>)
  800f4fe:	f7ff fe45 	bl	800f18c <_ZN8touchgfx13GeneratedFontC1EPKNS_9GlyphNodeEtthhhhhPKPKhPKNS_11KerningNodeEttPKt>
@@ -42892,9 +42892,9 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_30_4bpp()
  800f514:	bd80      	pop	{r7, pc}
  800f516:	bf00      	nop
  800f518:	200085e4 	.word	0x200085e4
- 800f51c:	0802d8e8 	.word	0x0802d8e8
+ 800f51c:	0802db08 	.word	0x0802db08
  800f520:	0802663c 	.word	0x0802663c
- 800f524:	0802dc18 	.word	0x0802dc18
+ 800f524:	0802de1c 	.word	0x0802de1c
  800f528:	200085c0 	.word	0x200085c0
  800f52c:	0800f4ad 	.word	0x0800f4ad
 
@@ -42904,7 +42904,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_40_4bpp();
 
 touchgfx::GeneratedFont& getFont_Asap_Bold_40_4bpp()
 {
-    static touchgfx::GeneratedFont Asap_Bold_40_4bpp(glyphs_Asap_Bold_40_4bpp, 12, 40, 0, 4, 1, 0, 1, unicodes_Asap_Bold_40_4bpp, kerning_Asap_Bold_40_4bpp, 63, 0, 0);
+    static touchgfx::GeneratedFont Asap_Bold_40_4bpp(glyphs_Asap_Bold_40_4bpp, 13, 40, 0, 4, 1, 0, 1, unicodes_Asap_Bold_40_4bpp, kerning_Asap_Bold_40_4bpp, 63, 0, 0);
  800f530:	b580      	push	{r7, lr}
  800f532:	af00      	add	r7, sp, #0
  800f534:	4801      	ldr	r0, [pc, #4]	; (800f53c <__tcf_0+0xc>)
@@ -42917,7 +42917,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_40_4bpp()
  800f540:	b580      	push	{r7, lr}
  800f542:	b08a      	sub	sp, #40	; 0x28
  800f544:	af0a      	add	r7, sp, #40	; 0x28
-    static touchgfx::GeneratedFont Asap_Bold_40_4bpp(glyphs_Asap_Bold_40_4bpp, 12, 40, 0, 4, 1, 0, 1, unicodes_Asap_Bold_40_4bpp, kerning_Asap_Bold_40_4bpp, 63, 0, 0);
+    static touchgfx::GeneratedFont Asap_Bold_40_4bpp(glyphs_Asap_Bold_40_4bpp, 13, 40, 0, 4, 1, 0, 1, unicodes_Asap_Bold_40_4bpp, kerning_Asap_Bold_40_4bpp, 63, 0, 0);
  800f546:	4b15      	ldr	r3, [pc, #84]	; (800f59c <_Z25getFont_Asap_Bold_40_4bppv+0x5c>)
  800f548:	681b      	ldr	r3, [r3, #0]
  800f54a:	f003 0301 	and.w	r3, r3, #1
@@ -42944,7 +42944,7 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_40_4bpp()
  800f576:	2300      	movs	r3, #0
  800f578:	9300      	str	r3, [sp, #0]
  800f57a:	2328      	movs	r3, #40	; 0x28
- 800f57c:	220c      	movs	r2, #12
+ 800f57c:	220d      	movs	r2, #13
  800f57e:	490a      	ldr	r1, [pc, #40]	; (800f5a8 <_Z25getFont_Asap_Bold_40_4bppv+0x68>)
  800f580:	480a      	ldr	r0, [pc, #40]	; (800f5ac <_Z25getFont_Asap_Bold_40_4bppv+0x6c>)
  800f582:	f7ff fe03 	bl	800f18c <_ZN8touchgfx13GeneratedFontC1EPKNS_9GlyphNodeEtthhhhhPKPKhPKNS_11KerningNodeEttPKt>
@@ -42961,9 +42961,9 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_40_4bpp()
  800f598:	bd80      	pop	{r7, pc}
  800f59a:	bf00      	nop
  800f59c:	2000860c 	.word	0x2000860c
- 800f5a0:	0802d8ec 	.word	0x0802d8ec
+ 800f5a0:	0802db0c 	.word	0x0802db0c
  800f5a4:	08026640 	.word	0x08026640
- 800f5a8:	0802dcd0 	.word	0x0802dcd0
+ 800f5a8:	0802dec4 	.word	0x0802dec4
  800f5ac:	200085e8 	.word	0x200085e8
  800f5b0:	0800f531 	.word	0x0800f531
 
@@ -43030,9 +43030,9 @@ touchgfx::GeneratedFont& getFont_Asap_Bold_60_4bpp()
  800f61c:	bd80      	pop	{r7, pc}
  800f61e:	bf00      	nop
  800f620:	20008634 	.word	0x20008634
- 800f624:	0802d8f0 	.word	0x0802d8f0
+ 800f624:	0802db10 	.word	0x0802db10
  800f628:	08026644 	.word	0x08026644
- 800f62c:	0802dd78 	.word	0x0802dd78
+ 800f62c:	0802df7c 	.word	0x0802df7c
  800f630:	20008610 	.word	0x20008610
  800f634:	0800f5b5 	.word	0x0800f5b5
 
@@ -47008,11 +47008,11 @@ MainViewBase::MainViewBase()
  8010ff6:	4620      	mov	r0, r4
  8010ff8:	f7ff fb42 	bl	8010680 <_ZN8touchgfx3Box8setColorENS_9colortypeE>
 
-    KpaDescriptor.setXY(231, 219);
+    KpaDescriptor.setXY(224, 218);
  8010ffc:	687b      	ldr	r3, [r7, #4]
  8010ffe:	3370      	adds	r3, #112	; 0x70
- 8011000:	22db      	movs	r2, #219	; 0xdb
- 8011002:	21e7      	movs	r1, #231	; 0xe7
+ 8011000:	22da      	movs	r2, #218	; 0xda
+ 8011002:	21e0      	movs	r1, #224	; 0xe0
  8011004:	4618      	mov	r0, r3
  8011006:	f7ff f92e 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     KpaDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
@@ -47043,11 +47043,11 @@ MainViewBase::MainViewBase()
  8011044:	4620      	mov	r0, r4
  8011046:	f006 fb77 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    CltDecsriptor.setXY(346, 126);
+    CltDecsriptor.setXY(338, 126);
  801104a:	687b      	ldr	r3, [r7, #4]
  801104c:	33a4      	adds	r3, #164	; 0xa4
  801104e:	227e      	movs	r2, #126	; 0x7e
- 8011050:	f44f 71ad 	mov.w	r1, #346	; 0x15a
+ 8011050:	f44f 71a9 	mov.w	r1, #338	; 0x152
  8011054:	4618      	mov	r0, r3
  8011056:	f7ff f906 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     CltDecsriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
@@ -47078,11 +47078,11 @@ MainViewBase::MainViewBase()
  8011094:	4620      	mov	r0, r4
  8011096:	f006 fb4f 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    LambdaDescriptor.setXY(223, 144);
+    LambdaDescriptor.setXY(216, 136);
  801109a:	687b      	ldr	r3, [r7, #4]
  801109c:	33d8      	adds	r3, #216	; 0xd8
- 801109e:	2290      	movs	r2, #144	; 0x90
- 80110a0:	21df      	movs	r1, #223	; 0xdf
+ 801109e:	2288      	movs	r2, #136	; 0x88
+ 80110a0:	21d8      	movs	r1, #216	; 0xd8
  80110a2:	4618      	mov	r0, r3
  80110a4:	f7ff f8df 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     LambdaDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
@@ -47116,11 +47116,11 @@ MainViewBase::MainViewBase()
  80110e8:	08026860 	.word	0x08026860
  80110ec:	f006 fb24 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    TrgtDescriptor.setXY(119, 126);
+    TrgtDescriptor.setXY(116, 126);
  80110f0:	687b      	ldr	r3, [r7, #4]
  80110f2:	f503 7386 	add.w	r3, r3, #268	; 0x10c
  80110f6:	227e      	movs	r2, #126	; 0x7e
- 80110f8:	2177      	movs	r1, #119	; 0x77
+ 80110f8:	2174      	movs	r1, #116	; 0x74
  80110fa:	4618      	mov	r0, r3
  80110fc:	f7ff f8b3 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     TrgtDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
@@ -47151,14 +47151,14 @@ MainViewBase::MainViewBase()
  801113c:	4620      	mov	r0, r4
  801113e:	f006 fafb 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    LambdaValue.setPosition(182, 78, 114, 62);
+    LambdaValue.setPosition(187, 77, 114, 62);
  8011142:	687b      	ldr	r3, [r7, #4]
  8011144:	f503 70a0 	add.w	r0, r3, #320	; 0x140
  8011148:	233e      	movs	r3, #62	; 0x3e
  801114a:	9300      	str	r3, [sp, #0]
  801114c:	2372      	movs	r3, #114	; 0x72
- 801114e:	224e      	movs	r2, #78	; 0x4e
- 8011150:	21b6      	movs	r1, #182	; 0xb6
+ 801114e:	224d      	movs	r2, #77	; 0x4d
+ 8011150:	21bb      	movs	r1, #187	; 0xbb
  8011152:	f7ff f83d 	bl	80101d0 <_ZN8touchgfx8Drawable11setPositionEssss>
     LambdaValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
  8011156:	687b      	ldr	r3, [r7, #4]
@@ -47211,14 +47211,14 @@ MainViewBase::MainViewBase()
  80111ce:	4620      	mov	r0, r4
  80111d0:	f006 fab2 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    TrgtValue.setPosition(104, 91, 60, 35);
+    TrgtValue.setPosition(102, 85, 71, 41);
  80111d4:	687b      	ldr	r3, [r7, #4]
  80111d6:	f503 70bc 	add.w	r0, r3, #376	; 0x178
- 80111da:	2323      	movs	r3, #35	; 0x23
+ 80111da:	2329      	movs	r3, #41	; 0x29
  80111dc:	9300      	str	r3, [sp, #0]
- 80111de:	233c      	movs	r3, #60	; 0x3c
- 80111e0:	225b      	movs	r2, #91	; 0x5b
- 80111e2:	2168      	movs	r1, #104	; 0x68
+ 80111de:	2347      	movs	r3, #71	; 0x47
+ 80111e0:	2255      	movs	r2, #85	; 0x55
+ 80111e2:	2166      	movs	r1, #102	; 0x66
  80111e4:	f7fe fff4 	bl	80101d0 <_ZN8touchgfx8Drawable11setPositionEssss>
     TrgtValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
  80111e8:	687b      	ldr	r3, [r7, #4]
@@ -47824,11 +47824,11 @@ MainViewBase::MainViewBase()
  80117b4:	4618      	mov	r0, r3
  80117b6:	f005 fe13 	bl	80173e0 <_ZN8touchgfx4Line18setLineEndingStyleENS0_17LINE_ENDING_STYLEE>
 
-    IATDescriptor.setXY(47, 126);
+    IATDescriptor.setXY(43, 126);
  80117ba:	687b      	ldr	r3, [r7, #4]
  80117bc:	f503 6385 	add.w	r3, r3, #1064	; 0x428
  80117c0:	227e      	movs	r2, #126	; 0x7e
- 80117c2:	212f      	movs	r1, #47	; 0x2f
+ 80117c2:	212b      	movs	r1, #43	; 0x2b
  80117c4:	4618      	mov	r0, r3
  80117c6:	f7fe fd4e 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     IATDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
@@ -47859,11 +47859,11 @@ MainViewBase::MainViewBase()
  8011808:	4620      	mov	r0, r4
  801180a:	f005 ff95 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    EGTDescriptor.setXY(47, 188);
+    EGTDescriptor.setXY(42, 193);
  801180e:	687b      	ldr	r3, [r7, #4]
  8011810:	f203 435c 	addw	r3, r3, #1116	; 0x45c
- 8011814:	22bc      	movs	r2, #188	; 0xbc
- 8011816:	212f      	movs	r1, #47	; 0x2f
+ 8011814:	22c1      	movs	r2, #193	; 0xc1
+ 8011816:	212a      	movs	r1, #42	; 0x2a
  8011818:	4618      	mov	r0, r3
  801181a:	f7fe fd24 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     EGTDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
@@ -47894,13 +47894,13 @@ MainViewBase::MainViewBase()
  801185c:	4620      	mov	r0, r4
  801185e:	f005 ff6b 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    IATValue.setPosition(25, 92, 60, 35);
+    IATValue.setPosition(25, 85, 60, 42);
  8011862:	687b      	ldr	r3, [r7, #4]
  8011864:	f503 6092 	add.w	r0, r3, #1168	; 0x490
- 8011868:	2323      	movs	r3, #35	; 0x23
+ 8011868:	232a      	movs	r3, #42	; 0x2a
  801186a:	9300      	str	r3, [sp, #0]
  801186c:	233c      	movs	r3, #60	; 0x3c
- 801186e:	225c      	movs	r2, #92	; 0x5c
+ 801186e:	2255      	movs	r2, #85	; 0x55
  8011870:	2119      	movs	r1, #25
  8011872:	f7fe fcad 	bl	80101d0 <_ZN8touchgfx8Drawable11setPositionEssss>
     IATValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
@@ -47956,12 +47956,12 @@ MainViewBase::MainViewBase()
  80118f6:	4620      	mov	r0, r4
  80118f8:	f005 ff1e 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    EGTValue.setPosition(25, 153, 60, 35);
+    EGTValue.setPosition(25, 153, 67, 42);
  80118fc:	687b      	ldr	r3, [r7, #4]
  80118fe:	f503 6099 	add.w	r0, r3, #1224	; 0x4c8
- 8011902:	2323      	movs	r3, #35	; 0x23
+ 8011902:	232a      	movs	r3, #42	; 0x2a
  8011904:	9300      	str	r3, [sp, #0]
- 8011906:	233c      	movs	r3, #60	; 0x3c
+ 8011906:	2343      	movs	r3, #67	; 0x43
  8011908:	2299      	movs	r2, #153	; 0x99
  801190a:	2119      	movs	r1, #25
  801190c:	f7fe fc60 	bl	80101d0 <_ZN8touchgfx8Drawable11setPositionEssss>
@@ -48016,11 +48016,11 @@ MainViewBase::MainViewBase()
  801198a:	4620      	mov	r0, r4
  801198c:	f005 fed4 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    IATDescriptor_1.setXY(343, 188);
+    IATDescriptor_1.setXY(330, 193);
  8011990:	687b      	ldr	r3, [r7, #4]
  8011992:	f503 63a0 	add.w	r3, r3, #1280	; 0x500
- 8011996:	22bc      	movs	r2, #188	; 0xbc
- 8011998:	f240 1157 	movw	r1, #343	; 0x157
+ 8011996:	22c1      	movs	r2, #193	; 0xc1
+ 8011998:	f44f 71a5 	mov.w	r1, #330	; 0x14a
  801199c:	4618      	mov	r0, r3
  801199e:	f7fe fc62 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     IATDescriptor_1.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
@@ -48051,11 +48051,11 @@ MainViewBase::MainViewBase()
  80119e0:	4620      	mov	r0, r4
  80119e2:	f005 fea9 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    ECTDescriptor_1.setXY(426, 188);
+    ECTDescriptor_1.setXY(412, 193);
  80119e6:	687b      	ldr	r3, [r7, #4]
  80119e8:	f203 5334 	addw	r3, r3, #1332	; 0x534
- 80119ec:	22bc      	movs	r2, #188	; 0xbc
- 80119ee:	f44f 71d5 	mov.w	r1, #426	; 0x1aa
+ 80119ec:	22c1      	movs	r2, #193	; 0xc1
+ 80119ee:	f44f 71ce 	mov.w	r1, #412	; 0x19c
  80119f2:	4618      	mov	r0, r3
  80119f4:	f7fe fc37 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     ECTDescriptor_1.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
@@ -48086,14 +48086,14 @@ MainViewBase::MainViewBase()
  8011a36:	4620      	mov	r0, r4
  8011a38:	f005 fe7e 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    OILTempValue.setPosition(328, 153, 60, 35);
+    OILTempValue.setPosition(316, 153, 75, 42);
  8011a3c:	687b      	ldr	r3, [r7, #4]
  8011a3e:	f503 60ad 	add.w	r0, r3, #1384	; 0x568
- 8011a42:	2323      	movs	r3, #35	; 0x23
+ 8011a42:	232a      	movs	r3, #42	; 0x2a
  8011a44:	9300      	str	r3, [sp, #0]
- 8011a46:	233c      	movs	r3, #60	; 0x3c
+ 8011a46:	234b      	movs	r3, #75	; 0x4b
  8011a48:	2299      	movs	r2, #153	; 0x99
- 8011a4a:	f44f 71a4 	mov.w	r1, #328	; 0x148
+ 8011a4a:	f44f 719e 	mov.w	r1, #316	; 0x13c
  8011a4e:	f7fe fbbf 	bl	80101d0 <_ZN8touchgfx8Drawable11setPositionEssss>
     OILTempValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
  8011a52:	687b      	ldr	r3, [r7, #4]
@@ -48146,14 +48146,14 @@ MainViewBase::MainViewBase()
  8011acc:	4620      	mov	r0, r4
  8011ace:	f005 fe33 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    OILPressureValue.setPosition(411, 153, 60, 35);
+    OILPressureValue.setPosition(398, 153, 71, 40);
  8011ad2:	687b      	ldr	r3, [r7, #4]
  8011ad4:	f503 60b4 	add.w	r0, r3, #1440	; 0x5a0
- 8011ad8:	2323      	movs	r3, #35	; 0x23
+ 8011ad8:	2328      	movs	r3, #40	; 0x28
  8011ada:	9300      	str	r3, [sp, #0]
- 8011adc:	233c      	movs	r3, #60	; 0x3c
+ 8011adc:	2347      	movs	r3, #71	; 0x47
  8011ade:	2299      	movs	r2, #153	; 0x99
- 8011ae0:	f240 119b 	movw	r1, #411	; 0x19b
+ 8011ae0:	f44f 71c7 	mov.w	r1, #398	; 0x18e
  8011ae4:	f7fe fb74 	bl	80101d0 <_ZN8touchgfx8Drawable11setPositionEssss>
     OILPressureValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
  8011ae8:	687b      	ldr	r3, [r7, #4]
@@ -48241,11 +48241,11 @@ MainViewBase::MainViewBase()
  8011bb8:	4620      	mov	r0, r4
  8011bba:	f005 fdbd 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    TPSProgress.setXY(365, 226);
+    TPSProgress.setXY(367, 226);
  8011bbe:	687b      	ldr	r3, [r7, #4]
  8011bc0:	f203 630c 	addw	r3, r3, #1548	; 0x60c
  8011bc4:	22e2      	movs	r2, #226	; 0xe2
- 8011bc6:	f240 116d 	movw	r1, #365	; 0x16d
+ 8011bc6:	f240 116f 	movw	r1, #367	; 0x16f
  8011bca:	4618      	mov	r0, r3
  8011bcc:	f7fe fb4b 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     TPSProgress.setProgressIndicatorPosition(2, 2, 100, 10);
@@ -48620,14 +48620,14 @@ MainViewBase::MainViewBase()
  8011f44:	4620      	mov	r0, r4
  8011f46:	f005 fbf7 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    CLTValue.setPosition(328, 91, 60, 35);
+    CLTValue.setPosition(316, 85, 72, 42);
  8011f4a:	687b      	ldr	r3, [r7, #4]
  8011f4c:	f603 1078 	addw	r0, r3, #2424	; 0x978
- 8011f50:	2323      	movs	r3, #35	; 0x23
+ 8011f50:	232a      	movs	r3, #42	; 0x2a
  8011f52:	9300      	str	r3, [sp, #0]
- 8011f54:	233c      	movs	r3, #60	; 0x3c
- 8011f56:	225b      	movs	r2, #91	; 0x5b
- 8011f58:	f44f 71a4 	mov.w	r1, #328	; 0x148
+ 8011f54:	2348      	movs	r3, #72	; 0x48
+ 8011f56:	2255      	movs	r2, #85	; 0x55
+ 8011f58:	f44f 719e 	mov.w	r1, #316	; 0x13c
  8011f5c:	f7fe f938 	bl	80101d0 <_ZN8touchgfx8Drawable11setPositionEssss>
     CLTValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
  8011f60:	687b      	ldr	r3, [r7, #4]
@@ -48680,14 +48680,14 @@ MainViewBase::MainViewBase()
  8011fda:	4620      	mov	r0, r4
  8011fdc:	f005 fbac 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    MAPValue.setPosition(191, 158, 96, 60);
+    MAPValue.setPosition(195, 158, 96, 60);
  8011fe0:	687b      	ldr	r3, [r7, #4]
  8011fe2:	f503 601b 	add.w	r0, r3, #2480	; 0x9b0
  8011fe6:	233c      	movs	r3, #60	; 0x3c
  8011fe8:	9300      	str	r3, [sp, #0]
  8011fea:	2360      	movs	r3, #96	; 0x60
  8011fec:	229e      	movs	r2, #158	; 0x9e
- 8011fee:	21bf      	movs	r1, #191	; 0xbf
+ 8011fee:	21c3      	movs	r1, #195	; 0xc3
  8011ff0:	f7fe f8ee 	bl	80101d0 <_ZN8touchgfx8Drawable11setPositionEssss>
     MAPValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
  8011ff4:	687b      	ldr	r3, [r7, #4]
@@ -48740,14 +48740,14 @@ MainViewBase::MainViewBase()
  801206e:	4620      	mov	r0, r4
  8012070:	f005 fb62 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    EGTValue2.setPosition(104, 153, 60, 35);
+    EGTValue2.setPosition(100, 153, 78, 42);
  8012074:	687b      	ldr	r3, [r7, #4]
  8012076:	f603 10e8 	addw	r0, r3, #2536	; 0x9e8
- 801207a:	2323      	movs	r3, #35	; 0x23
+ 801207a:	232a      	movs	r3, #42	; 0x2a
  801207c:	9300      	str	r3, [sp, #0]
- 801207e:	233c      	movs	r3, #60	; 0x3c
+ 801207e:	234e      	movs	r3, #78	; 0x4e
  8012080:	2299      	movs	r2, #153	; 0x99
- 8012082:	2168      	movs	r1, #104	; 0x68
+ 8012082:	2164      	movs	r1, #100	; 0x64
  8012084:	f7fe f8a4 	bl	80101d0 <_ZN8touchgfx8Drawable11setPositionEssss>
     EGTValue2.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
  8012088:	687b      	ldr	r3, [r7, #4]
@@ -48800,11 +48800,11 @@ MainViewBase::MainViewBase()
  8012102:	4620      	mov	r0, r4
  8012104:	f005 fb18 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    EGT2Descriptor.setXY(118, 188);
+    EGT2Descriptor.setXY(114, 193);
  8012108:	687b      	ldr	r3, [r7, #4]
  801210a:	f503 6322 	add.w	r3, r3, #2592	; 0xa20
- 801210e:	22bc      	movs	r2, #188	; 0xbc
- 8012110:	2176      	movs	r1, #118	; 0x76
+ 801210e:	22c1      	movs	r2, #193	; 0xc1
+ 8012110:	2172      	movs	r1, #114	; 0x72
  8012112:	4618      	mov	r0, r3
  8012114:	f7fe f8a7 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     EGT2Descriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
@@ -48837,14 +48837,14 @@ MainViewBase::MainViewBase()
  801215c:	4620      	mov	r0, r4
  801215e:	f005 faeb 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    FuelPValue.setPosition(411, 92, 60, 35);
+    FuelPValue.setPosition(399, 85, 68, 42);
  8012162:	687b      	ldr	r3, [r7, #4]
  8012164:	f603 2054 	addw	r0, r3, #2644	; 0xa54
- 8012168:	2323      	movs	r3, #35	; 0x23
+ 8012168:	232a      	movs	r3, #42	; 0x2a
  801216a:	9300      	str	r3, [sp, #0]
- 801216c:	233c      	movs	r3, #60	; 0x3c
- 801216e:	225c      	movs	r2, #92	; 0x5c
- 8012170:	f240 119b 	movw	r1, #411	; 0x19b
+ 801216c:	2344      	movs	r3, #68	; 0x44
+ 801216e:	2255      	movs	r2, #85	; 0x55
+ 8012170:	f240 118f 	movw	r1, #399	; 0x18f
  8012174:	f7fe f82c 	bl	80101d0 <_ZN8touchgfx8Drawable11setPositionEssss>
     FuelPValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
  8012178:	687b      	ldr	r3, [r7, #4]
@@ -48897,11 +48897,11 @@ MainViewBase::MainViewBase()
  80121f2:	4620      	mov	r0, r4
  80121f4:	f005 faa0 	bl	8017738 <_ZN8touchgfx8TextArea12setTypedTextENS_9TypedTextE>
 
-    FuelPDescriptor.setXY(423, 126);
+    FuelPDescriptor.setXY(407, 126);
  80121f8:	687b      	ldr	r3, [r7, #4]
  80121fa:	f603 238c 	addw	r3, r3, #2700	; 0xa8c
  80121fe:	227e      	movs	r2, #126	; 0x7e
- 8012200:	f240 11a7 	movw	r1, #423	; 0x1a7
+ 8012200:	f240 1197 	movw	r1, #407	; 0x197
  8012204:	4618      	mov	r0, r3
  8012206:	f7fe f82e 	bl	8010266 <_ZN8touchgfx8Drawable5setXYEss>
     FuelPDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
@@ -49708,9 +49708,9 @@ void touchgfx::Texts::setLanguage(touchgfx::LanguageId id)
  8012830:	20008648 	.word	0x20008648
  8012834:	20008650 	.word	0x20008650
  8012838:	20008654 	.word	0x20008654
- 801283c:	08061400 	.word	0x08061400
- 8012840:	08061328 	.word	0x08061328
- 8012844:	08061564 	.word	0x08061564
+ 801283c:	08061604 	.word	0x08061604
+ 8012840:	0806152c 	.word	0x0806152c
+ 8012844:	08061768 	.word	0x08061768
  8012848:	2000864c 	.word	0x2000864c
 
 0801284c <_ZNK8touchgfx5Texts7getTextEt>:
@@ -80882,10 +80882,10 @@ extern "C"
  8024e82:	4798      	blx	r3
  8024e84:	3501      	adds	r5, #1
  8024e86:	e7f2      	b.n	8024e6e <__libc_init_array+0x1e>
- 8024e88:	08061570 	.word	0x08061570
- 8024e8c:	08061570 	.word	0x08061570
- 8024e90:	08061570 	.word	0x08061570
- 8024e94:	08061584 	.word	0x08061584
+ 8024e88:	08061774 	.word	0x08061774
+ 8024e8c:	08061774 	.word	0x08061774
+ 8024e90:	08061774 	.word	0x08061774
+ 8024e94:	08061788 	.word	0x08061788
 
 08024e98 <malloc>:
  8024e98:	4b02      	ldr	r3, [pc, #8]	; (8024ea4 <malloc+0xc>)

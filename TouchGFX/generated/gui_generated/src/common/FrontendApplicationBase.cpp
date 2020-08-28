@@ -11,6 +11,8 @@
 #include<platform/driver/lcd/LCD24bpp.hpp>
 #include <gui/main_screen/MainView.hpp>
 #include <gui/main_screen/MainPresenter.hpp>
+#include <gui/secondscreen_screen/SecondScreenView.hpp>
+#include <gui/secondscreen_screen/SecondScreenPresenter.hpp>
 
 using namespace touchgfx;
 
@@ -40,4 +42,28 @@ void FrontendApplicationBase::gotoMainScreenNoTransition()
 void FrontendApplicationBase::gotoMainScreenNoTransitionImpl()
 {
     touchgfx::makeTransition<MainView, MainPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+void FrontendApplicationBase::gotoMainScreenSlideTransitionEast()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoMainScreenSlideTransitionEastImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoMainScreenSlideTransitionEastImpl()
+{
+    touchgfx::makeTransition<MainView, MainPresenter, touchgfx::SlideTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// SecondScreen
+
+void FrontendApplicationBase::gotoSecondScreenScreenSlideTransitionEast()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoSecondScreenScreenSlideTransitionEastImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoSecondScreenScreenSlideTransitionEastImpl()
+{
+    touchgfx::makeTransition<SecondScreenView, SecondScreenPresenter, touchgfx::SlideTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

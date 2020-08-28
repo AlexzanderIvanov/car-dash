@@ -6,7 +6,8 @@
 #include <texts/TextKeysAndLanguages.hpp>
 #include "BitmapDatabase.hpp"
 
-MainViewBase::MainViewBase()
+MainViewBase::MainViewBase() :
+    flexButtonCallback(this, &MainViewBase::flexButtonCallbackHandler)
 {
 
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
@@ -264,6 +265,13 @@ MainViewBase::MainViewBase()
     TpsNumberValue.setWildcard(TpsNumberValueBuffer);
     TpsNumberValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID74));
 
+    BtnGoToSecondScreen.setBoxWithBorderPosition(0, 0, 122, 272);
+    BtnGoToSecondScreen.setBorderSize(5);
+    BtnGoToSecondScreen.setBoxWithBorderColors(touchgfx::Color::getColorFrom24BitRGB(0, 102, 153), touchgfx::Color::getColorFrom24BitRGB(0, 153, 204), touchgfx::Color::getColorFrom24BitRGB(0, 51, 102), touchgfx::Color::getColorFrom24BitRGB(51, 102, 153));
+    BtnGoToSecondScreen.setPosition(358, 0, 122, 272);
+    BtnGoToSecondScreen.setAlpha(0);
+    BtnGoToSecondScreen.setAction(flexButtonCallback);
+
     add(backgroundBox);
     add(KpaDescriptor);
     add(CltDecsriptor);
@@ -304,9 +312,21 @@ MainViewBase::MainViewBase()
     add(FuelPValue);
     add(FuelPDescriptor);
     add(TpsNumberValue);
+    add(BtnGoToSecondScreen);
 }
 
 void MainViewBase::setupScreen()
 {
 
+}
+
+void MainViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
+{
+    if (&src == &BtnGoToSecondScreen)
+    {
+        //Interaction1
+        //When BtnGoToSecondScreen clicked change screen to SecondScreen
+        //Go to SecondScreen with screen transition towards East
+        application().gotoSecondScreenScreenSlideTransitionEast();
+    }
 }

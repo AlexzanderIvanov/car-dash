@@ -1034,12 +1034,165 @@
             "Clickable": false,
             "Fadeable": false,
             "Moveable": false
+          },
+          {
+            "Alpha": 0,
+            "ButtonTrigger": {
+              "Type": "TouchButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "X": 0,
+                "Y": 0,
+                "Width": 122,
+                "Height": 272,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 0,
+                  "Green": 102,
+                  "Blue": 153
+                },
+                "ColorPressed": {
+                  "Red": 0,
+                  "Green": 153,
+                  "Blue": 204
+                },
+                "ColorBorderReleased": {
+                  "Red": 0,
+                  "Green": 51,
+                  "Blue": 102
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 102,
+                  "Blue": 153
+                }
+              }
+            ],
+            "Name": "BtnGoToSecondScreen",
+            "X": 358,
+            "Y": 0,
+            "Width": 122,
+            "Height": 272,
+            "Type": "FlexButton",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
           }
         ],
-        "Interactions": [],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "BtnGoToSecondScreen",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "SecondScreen",
+              "Type": "ActionGotoScreen"
+            }
+          }
+        ],
         "Name": "Main",
         "OverrideDefaultBufferSize": false,
         "CanvasBufferSize": 7200
+      },
+      {
+        "Components": [
+          {
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "Name": "backgroundBox",
+            "X": 0,
+            "Y": 0,
+            "Width": 480,
+            "Height": 272,
+            "Type": "Box",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Alpha": 0,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "X": 0,
+                "Y": 0,
+                "Width": 133,
+                "Height": 272,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 0,
+                  "Green": 102,
+                  "Blue": 153
+                },
+                "ColorPressed": {
+                  "Red": 0,
+                  "Green": 153,
+                  "Blue": 204
+                },
+                "ColorBorderReleased": {
+                  "Red": 0,
+                  "Green": 51,
+                  "Blue": 102
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 102,
+                  "Blue": 153
+                }
+              }
+            ],
+            "Name": "ButtonGoToMainScreen",
+            "X": 0,
+            "Y": 0,
+            "Width": 133,
+            "Height": 272,
+            "Type": "FlexButton",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "ButtonGoToMainScreen",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Main",
+              "Type": "ActionGotoScreen"
+            }
+          }
+        ],
+        "Name": "SecondScreen",
+        "OverrideDefaultBufferSize": false,
+        "CanvasBufferSize": 0
       }
     ],
     "CustomContainerDefinitions": [],

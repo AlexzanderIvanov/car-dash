@@ -37,12 +37,16 @@ TouchGFX/target/generated/TouchGFXGeneratedHAL.o: \
  ../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/MVPHeap.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/NoTransition.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/SlideTransition.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/Container.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/SnapshotWidget.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp \
  ../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
  ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/Container.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/JSMOCHelper.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp \
  ../TouchGFX/gui/include/gui/model/Model.hpp \
@@ -51,7 +55,6 @@ TouchGFX/target/generated/TouchGFXGeneratedHAL.o: \
  ../TouchGFX/gui/include/gui/main_screen/MainPresenter.hpp \
  ../TouchGFX/gui/include/gui/model/ModelListener.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/FontManager.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
@@ -78,6 +81,25 @@ TouchGFX/target/generated/TouchGFXGeneratedHAL.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/AbstractProgressIndicator.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/ImageProgress.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TiledImage.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/Buttons.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/ClickButtonTrigger.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/AbstractButtonContainer.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/RepeatButtonTrigger.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/ToggleButtonTrigger.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TouchButtonTrigger.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/BoxWithBorderButtonStyle.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/BoxWithBorder.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/IconButtonStyle.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/ImageButtonStyle.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/AnimatedImageButtonStyle.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AnimatedImage.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TextButtonStyle.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TiledImageButtonStyle.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/WildcardTextButtonStyle.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TwoWildcardTextButtonStyle.hpp \
+ ../TouchGFX/gui/include/gui/secondscreen_screen/SecondScreenView.hpp \
+ ../TouchGFX/generated/gui_generated/include/gui_generated/secondscreen_screen/SecondScreenViewBase.hpp \
+ ../TouchGFX/gui/include/gui/secondscreen_screen/SecondScreenPresenter.hpp \
  ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h \
  ../Drivers/CMSIS/Include/core_cm7.h \
@@ -203,6 +225,16 @@ TouchGFX/target/generated/TouchGFXGeneratedHAL.o: \
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/NoTransition.hpp:
 
+../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/SlideTransition.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/Container.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/SnapshotWidget.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp:
+
 ../TouchGFX/gui/include/gui/common/FrontendApplication.hpp:
 
 ../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:
@@ -212,8 +244,6 @@ TouchGFX/target/generated/TouchGFXGeneratedHAL.o: \
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/Container.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/JSMOCHelper.hpp:
 
@@ -230,8 +260,6 @@ TouchGFX/target/generated/TouchGFXGeneratedHAL.o: \
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:
 
@@ -284,6 +312,44 @@ TouchGFX/target/generated/TouchGFXGeneratedHAL.o: \
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/ImageProgress.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TiledImage.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/Buttons.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/ClickButtonTrigger.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/AbstractButtonContainer.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/RepeatButtonTrigger.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/ToggleButtonTrigger.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TouchButtonTrigger.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/BoxWithBorderButtonStyle.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/BoxWithBorder.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/IconButtonStyle.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/ImageButtonStyle.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/AnimatedImageButtonStyle.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AnimatedImage.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TextButtonStyle.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TiledImageButtonStyle.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/WildcardTextButtonStyle.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TwoWildcardTextButtonStyle.hpp:
+
+../TouchGFX/gui/include/gui/secondscreen_screen/SecondScreenView.hpp:
+
+../TouchGFX/generated/gui_generated/include/gui_generated/secondscreen_screen/SecondScreenViewBase.hpp:
+
+../TouchGFX/gui/include/gui/secondscreen_screen/SecondScreenPresenter.hpp:
 
 ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h:
 

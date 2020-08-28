@@ -172,6 +172,18 @@
     <Filter Include="Header Files\generated\gui_generated\common">
       <UniqueIdentifier>03009FB0-C54D-D560-A7D4-EA72ED25E45D</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\secondscreen_screen">
+      <UniqueIdentifier>C4CC6143-4953-2263-B67A-A7886D171E50</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\secondscreen_screen">
+      <UniqueIdentifier>6648D380-E179-3922-AEB2-7F559ED5BAA5</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\secondscreen_screen">
+      <UniqueIdentifier>C9E8B063-A446-B61C-3B8F-60CE2A0318ED</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\secondscreen_screen">
+      <UniqueIdentifier>936A8025-403C-4089-95AF-96EED5B0D988</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -209,6 +221,15 @@
     </ClCompile>
     <ClCompile Include="..\..\gui\src\model\Model.cpp">
       <Filter>Source Files\gui\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\secondscreen_screen\SecondScreenPresenter.cpp">
+      <Filter>Source Files\gui\secondscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\secondscreen_screen\SecondScreenView.cpp">
+      <Filter>Source Files\gui\secondscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\secondscreen_screen\SecondScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\secondscreen_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -651,6 +672,15 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\SimConstants.hpp">
       <Filter>Header Files\generated\gui_generated\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\secondscreen_screen\SecondScreenPresenter.hpp">
+      <Filter>Header Files\gui\secondscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\secondscreen_screen\SecondScreenView.hpp">
+      <Filter>Header Files\gui\secondscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\secondscreen_screen\SecondScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\secondscreen_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

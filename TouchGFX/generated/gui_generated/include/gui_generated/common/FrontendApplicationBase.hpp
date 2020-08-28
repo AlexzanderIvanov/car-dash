@@ -18,6 +18,11 @@ public:
     // Main
     void gotoMainScreenNoTransition();
 
+    void gotoMainScreenSlideTransitionEast();
+
+    // SecondScreen
+    void gotoSecondScreenScreenSlideTransitionEast();
+
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
@@ -25,6 +30,11 @@ protected:
 
     // Main
     void gotoMainScreenNoTransitionImpl();
+
+    void gotoMainScreenSlideTransitionEastImpl();
+
+    // SecondScreen
+    void gotoSecondScreenScreenSlideTransitionEastImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

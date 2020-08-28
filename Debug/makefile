@@ -8,14 +8,17 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include ft5336/subdir.mk
 -include TouchGFX/target/generated/subdir.mk
 -include TouchGFX/target/subdir.mk
+-include TouchGFX/gui/src/secondscreen_screen/subdir.mk
 -include TouchGFX/gui/src/model/subdir.mk
 -include TouchGFX/gui/src/main_screen/subdir.mk
 -include TouchGFX/gui/src/common/subdir.mk
 -include TouchGFX/generated/texts/src/subdir.mk
 -include TouchGFX/generated/images/src/__designer/subdir.mk
 -include TouchGFX/generated/images/src/subdir.mk
+-include TouchGFX/generated/gui_generated/src/secondscreen_screen/subdir.mk
 -include TouchGFX/generated/gui_generated/src/main_screen/subdir.mk
 -include TouchGFX/generated/gui_generated/src/common/subdir.mk
 -include TouchGFX/generated/fonts/src/subdir.mk
@@ -26,6 +29,7 @@ RM := rm -rf
 -include TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/common/subdir.mk
 -include TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/subdir.mk
 -include TouchGFX/App/subdir.mk
+-include STM32746G-Discovery/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/subdir.mk

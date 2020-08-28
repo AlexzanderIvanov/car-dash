@@ -1,5 +1,5 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/message_types.h \
- ../Core/Inc/main.h ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
+Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
+ ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h \
@@ -72,9 +72,12 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/message_types.h \
  ../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h \
  ../Middlewares/Third_Party/FatFs/src/diskio.h \
  ../Middlewares/Third_Party/FatFs/src/ff.h ../FATFS/Target/sd_diskio.h \
- ../TouchGFX/App/app_touchgfx.h
-
-../Core/Inc/message_types.h:
+ ../TouchGFX/App/app_touchgfx.h ../Core/Inc/message_types.h \
+ E:/prj/CanDisplaoy/new/stm32f746-canbus-display-master/STM32746G-Discovery/stm32746g_discovery.h \
+ E:/prj/CanDisplaoy/new/stm32f746-canbus-display-master/STM32746G-Discovery/stm32746g_discovery_ts.h \
+ E:/prj/CanDisplaoy/new/stm32f746-canbus-display-master/STM32746G-Discovery/stm32746g_discovery.h \
+ e:\prj\candisplaoy\new\stm32f746-canbus-display-master\ft5336\ft5336.h \
+ e:\prj\candisplaoy\new\stm32f746-canbus-display-master\drivers\ts.h
 
 ../Core/Inc/main.h:
 
@@ -233,3 +236,15 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/message_types.h \
 ../FATFS/Target/sd_diskio.h:
 
 ../TouchGFX/App/app_touchgfx.h:
+
+../Core/Inc/message_types.h:
+
+E:/prj/CanDisplaoy/new/stm32f746-canbus-display-master/STM32746G-Discovery/stm32746g_discovery.h:
+
+E:/prj/CanDisplaoy/new/stm32f746-canbus-display-master/STM32746G-Discovery/stm32746g_discovery_ts.h:
+
+E:/prj/CanDisplaoy/new/stm32f746-canbus-display-master/STM32746G-Discovery/stm32746g_discovery.h:
+
+e:\prj\candisplaoy\new\stm32f746-canbus-display-master\ft5336\ft5336.h:
+
+e:\prj\candisplaoy\new\stm32f746-canbus-display-master\drivers\ts.h:

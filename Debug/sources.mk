@@ -38,6 +38,7 @@ Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS \
 Middlewares/Third_Party/FreeRTOS/Source \
 Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 \
 Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang \
+STM32746G-Discovery \
 TouchGFX/App \
 TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src \
 TouchGFX/build/MINGW32_NT-6.2/generated/gui_generated/src/common \
@@ -48,12 +49,15 @@ TouchGFX/build/MINGW32_NT-6.2/gui/src/main_screen \
 TouchGFX/generated/fonts/src \
 TouchGFX/generated/gui_generated/src/common \
 TouchGFX/generated/gui_generated/src/main_screen \
+TouchGFX/generated/gui_generated/src/secondscreen_screen \
 TouchGFX/generated/images/src \
 TouchGFX/generated/images/src/__designer \
 TouchGFX/generated/texts/src \
 TouchGFX/gui/src/common \
 TouchGFX/gui/src/main_screen \
 TouchGFX/gui/src/model \
+TouchGFX/gui/src/secondscreen_screen \
 TouchGFX/target \
 TouchGFX/target/generated \
+ft5336 \
 

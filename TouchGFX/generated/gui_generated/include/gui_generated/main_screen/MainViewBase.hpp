@@ -15,6 +15,7 @@
 #include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 #include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 #include <touchgfx/containers/progress_indicators/ImageProgress.hpp>
+#include <touchgfx/containers/buttons/Buttons.hpp>
 
 class MainViewBase : public touchgfx::View<MainPresenter>
 {
@@ -74,6 +75,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard FuelPValue;
     touchgfx::TextArea FuelPDescriptor;
     touchgfx::TextAreaWithOneWildcard TpsNumberValue;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger > BtnGoToSecondScreen;
 
     /*
      * Wildcard Buffers
@@ -122,6 +124,16 @@ protected:
     touchgfx::Unicode::UnicodeChar TpsNumberValueBuffer[TPSNUMBERVALUE_SIZE];
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<MainViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
     /*
      * Canvas Buffer Size

@@ -23,6 +23,9 @@
     <ClCompile Include="..\..\gui\src\main_screen\MainView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\main_screen\MainViewBase.cpp"/>
     <ClCompile Include="..\..\gui\src\model\Model.cpp"/>
+    <ClCompile Include="..\..\gui\src\secondscreen_screen\SecondScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\secondscreen_screen\SecondScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\secondscreen_screen\SecondScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xlsx"/>
@@ -173,6 +176,9 @@
     <ClInclude Include="..\..\gui\include\gui\model\Model.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\model\ModelListener.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\SimConstants.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\secondscreen_screen\SecondScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\secondscreen_screen\SecondScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\secondscreen_screen\SecondScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

@@ -159,11 +159,11 @@ extern xQueueHandle settingsMessageQ;
 void SecondTask(void const* argument)
 {
 
-	settings_message settings_val = {7000, 1, 2, 3, 4, 5, 6, 7, 8, 0};
+	settings_message settings_val = {6500, 1, 2, 3, 4, 5, 6, 7, 8, 0};
 	xQueueSend(settingsMessageQ, &settings_val,0);
 	osDelay(150);
 
-	static const int demo_mode = 1;
+	static const int demo_mode = 0;
 	for(;;)
 	{
 		if(demo_mode)

@@ -996,7 +996,7 @@ void SecondTask(void const* argument)
  8000b44:	af00      	add	r7, sp, #0
  8000b46:	6078      	str	r0, [r7, #4]
 
-	settings_message settings_val = {7000, 1, 2, 3, 4, 5, 6, 7, 8, 0};
+	settings_message settings_val = {6500, 1, 2, 3, 4, 5, 6, 7, 8, 0};
  8000b48:	4b83      	ldr	r3, [pc, #524]	; (8000d58 <SecondTask+0x218>)
  8000b4a:	f107 0440 	add.w	r4, r7, #64	; 0x40
  8000b4e:	461d      	mov	r5, r3
@@ -1017,7 +1017,7 @@ void SecondTask(void const* argument)
  8000b70:	2096      	movs	r0, #150	; 0x96
  8000b72:	f00b fbed 	bl	800c350 <osDelay>
 
-	static const int demo_mode = 1;
+	static const int demo_mode = 0;
 	for(;;)
 	{
 		if(demo_mode)

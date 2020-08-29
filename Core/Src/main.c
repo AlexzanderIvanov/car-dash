@@ -482,6 +482,78 @@ static void MX_CAN1_Init(void)
 
 }
 
+/* USER CODE BEGIN CAN1_Init 2 */
+
+/**
+  * @brief  Rx Fifo 0 message pending callback
+  * @param  hcan: pointer to a CAN_HandleTypeDef structure that contains
+  *         the configuration information for the specified CAN.
+  * @retval None
+  */
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+  /* Get RX message */
+  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) != HAL_OK)
+  {
+    /* Reception Error */
+    Error_Handler();
+  }
+
+  /* Package one */
+  if ((RxHeader.StdId == 0x600) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+  {
+	 uint16_t rpm_in = (RxData[0] << 0) | (RxData[1] << 8);
+	 uint8_t tps_in = RxData[2];
+	 uint8_t iat_in = RxData[3];
+	 uint16_t map_in = (RxData[4] << 0) | (RxData[5] << 8);
+
+	 rpm = (int)rpm_in;
+	 map = ((int)map_in*1.0f);
+	 iat = (int)iat_in;
+	 tps = (int)(((float)tps_in)*0.5f);
+	 (void)map;
+	 (void)iat;
+  }
+
+  if ((RxHeader.StdId == 0x602) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+  {
+	 uint8_t oil_tmp_in = RxData[3];
+	 uint8_t oil_press_in = RxData[4];
+	 uint16_t clt_in = (RxData[6] << 0) | (RxData[7] << 8);
+
+	 oil_tmp = ((int)oil_tmp_in) * 1;
+	 oil_press = ((int)oil_press_in) * 0.0625f;
+	 clt = ((int)clt_in) * 1;
+  }
+
+  if ((RxHeader.StdId == 0x603) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+  {
+	 uint8_t lambda_in = RxData[2];
+	 uint16_t egt_1_in = (RxData[4] << 0) | (RxData[5] << 8);
+	 uint16_t egt_2_in = (RxData[6] << 0) | (RxData[7] << 8);
+	 lambda = ((float)lambda_in)*0.0078125f;
+	 egt = (int)egt_1_in;
+	 egt_2 = (int)egt_2_in;
+   }
+
+  if ((RxHeader.StdId == 0x604) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+  {
+	 uint16_t batt_in = (RxData[2] << 0) | (RxData[3] << 8);
+	 float battery_voltage = ((float)batt_in)*0.027f;
+	 batt_v = battery_voltage;
+	 (void)batt_v;
+  }
+
+  if ((RxHeader.StdId == 0x500) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 3))
+    {
+  	 uint8_t lambda_targ_in = RxData[0];
+  	 uint16_t fuel_p_d = (RxData[1] << 0) | (RxData[2] << 8);
+  	 lambda_targ = ((float)lambda_targ_in) / 100;
+  	 fuel_press = ((int)fuel_p_d);
+    }
+}
+
+/* USER CODE END CAN1_Init 2 */
 /**
   * @brief CRC Initialization Function
   * @param None

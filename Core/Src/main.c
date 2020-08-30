@@ -102,6 +102,8 @@ osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
 static FMC_SDRAM_CommandTypeDef Command;
 osThreadId secondTaskHandle;
+CAN_RxHeaderTypeDef   RxHeader;
+uint8_t               RxData[8];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

@@ -37,6 +37,14 @@ public:
      * the ModelListener interface.
      */
     void tick();
+
+    void saveCurrentScreenIndex(int cScreen);
+
+    int getCurrentScreenIndex();
+
+    void setManualErrorChangeScreen();
+    bool getManualErrorChangeScreen();
+
 protected:
     /**
      * Pointer to the currently active presenter.

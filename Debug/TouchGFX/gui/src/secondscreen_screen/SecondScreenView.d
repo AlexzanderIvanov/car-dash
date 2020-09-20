@@ -68,7 +68,12 @@ TouchGFX/gui/src/secondscreen_screen/SecondScreenView.o: \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TiledImage.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/WildcardTextButtonStyle.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TwoWildcardTextButtonStyle.hpp
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TwoWildcardTextButtonStyle.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
+ ../Core/Inc/message_types.h \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp \
+ ../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp
 
 ../TouchGFX/gui/include/gui/secondscreen_screen/SecondScreenView.hpp:
 
@@ -207,3 +212,13 @@ TouchGFX/gui/src/secondscreen_screen/SecondScreenView.o: \
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TwoWildcardTextButtonStyle.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
+
+../Core/Inc/message_types.h:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp:
+
+../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp:

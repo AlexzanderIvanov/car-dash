@@ -12,7 +12,7 @@ MainViewBase::MainViewBase() :
 
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
-    backgroundBox.setPosition(0, 0, 800, 480);
+    backgroundBox.setPosition(0, 0, 488, 278);
     backgroundBox.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
 
     KpaDescriptor.setXY(224, 218);

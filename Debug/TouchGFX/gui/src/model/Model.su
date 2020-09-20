@@ -1,2 +1,6 @@
-Model.cpp:18:1:Model::Model()	16	static
-Model.cpp:24:6:void Model::tick()	16	static
+Model.cpp:20:1:Model::Model()	16	static
+Model.cpp:26:6:void Model::tick()	16	static
+Model.cpp:39:6:void Model::saveCurrentScreenIndex(int)	16	static
+Model.cpp:44:5:int Model::getCurrentScreenIndex()	16	static
+Model.cpp:49:6:void Model::setManualErrorChangeScreen()	16	static
+Model.cpp:53:6:bool Model::getManualErrorChangeScreen()	16	static

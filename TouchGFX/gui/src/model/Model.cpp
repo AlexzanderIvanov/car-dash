@@ -8,6 +8,8 @@
 
 uint8_t values[sizeof(display_values)];
 uint8_t settings_value[sizeof(settings_message)];
+int currentScreenIndex;
+bool manualErrorScreenChange = false;
 
 extern "C"
 {
@@ -32,4 +34,22 @@ void Model::tick()
 	{
 		modelListener->updateDisplaySettings(settings_value);
 	}
+}
+
+void Model::saveCurrentScreenIndex(int cScreen)
+{
+	currentScreenIndex = cScreen;
+}
+
+int Model::getCurrentScreenIndex()
+{
+	return currentScreenIndex;
+}
+
+void Model::setManualErrorChangeScreen() {
+	manualErrorScreenChange = true;
+}
+
+bool Model::getManualErrorChangeScreen() {
+	return manualErrorScreenChange;
 }

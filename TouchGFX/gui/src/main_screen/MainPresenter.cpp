@@ -8,6 +8,7 @@ MainPresenter::MainPresenter(MainView& v)
 
 void MainPresenter::activate()
 {
+	 model -> saveCurrentScreenIndex(1);
 }
 
 void MainPresenter::deactivate()

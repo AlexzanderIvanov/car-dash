@@ -18,7 +18,7 @@ public:
     // Main
     void gotoMainScreenNoTransition();
 
-    void gotoMainScreenSlideTransitionEast();
+    void gotoMainScreenSlideTransitionWest();
 
     // SecondScreen
     void gotoSecondScreenScreenSlideTransitionEast();
@@ -31,7 +31,7 @@ protected:
     // Main
     void gotoMainScreenNoTransitionImpl();
 
-    void gotoMainScreenSlideTransitionEastImpl();
+    void gotoMainScreenSlideTransitionWestImpl();
 
     // SecondScreen
     void gotoSecondScreenScreenSlideTransitionEastImpl();

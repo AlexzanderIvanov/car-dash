@@ -97,6 +97,8 @@ TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.o: \
  ../TouchGFX/gui/include/gui/secondscreen_screen/SecondScreenView.hpp \
  ../TouchGFX/generated/gui_generated/include/gui_generated/secondscreen_screen/SecondScreenViewBase.hpp \
  ../TouchGFX/gui/include/gui/secondscreen_screen/SecondScreenPresenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
  ../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp \
  ../Middlewares/ST/touchgfx/framework/include/platform/driver/lcd/LCD24bpp.hpp
 
@@ -293,6 +295,10 @@ TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.o: \
 ../TouchGFX/generated/gui_generated/include/gui_generated/secondscreen_screen/SecondScreenViewBase.hpp:
 
 ../TouchGFX/gui/include/gui/secondscreen_screen/SecondScreenPresenter.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
 
 ../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp:
 

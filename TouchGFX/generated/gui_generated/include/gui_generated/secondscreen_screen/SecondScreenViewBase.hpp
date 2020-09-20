@@ -9,6 +9,9 @@
 #include <gui/secondscreen_screen/SecondScreenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/Button.hpp>
 
 class SecondScreenViewBase : public touchgfx::View<SecondScreenPresenter>
 {
@@ -16,6 +19,24 @@ public:
     SecondScreenViewBase();
     virtual ~SecondScreenViewBase() {}
     virtual void setupScreen();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void nextError()
+    {
+        // Override and implement this function in SecondScreen
+    }
+
+    virtual void clearErrors()
+    {
+        // Override and implement this function in SecondScreen
+    }
+
+    virtual void moveToMainScreen()
+    {
+        // Override and implement this function in SecondScreen
+    }
 
 protected:
     FrontendApplication& application() {
@@ -27,17 +48,32 @@ protected:
      */
     touchgfx::Box backgroundBox;
     touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger > ButtonGoToMainScreen;
+    touchgfx::TextAreaWithOneWildcard IngAngValue;
+    touchgfx::TextArea IgnAngDescriptor;
+    touchgfx::TextAreaWithOneWildcard ErrorMessage;
+    touchgfx::Button nextErrorButton;
+    touchgfx::Button clearErrorsBtn;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t INGANGVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar IngAngValueBuffer[INGANGVALUE_SIZE];
+    static const uint16_t ERRORMESSAGE_SIZE = 35;
+    touchgfx::Unicode::UnicodeChar ErrorMessageBuffer[ERRORMESSAGE_SIZE];
 
 private:
 
     /*
      * Callback Declarations
      */
+    touchgfx::Callback<SecondScreenViewBase, const touchgfx::AbstractButton&> buttonCallback;
     touchgfx::Callback<SecondScreenViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
 
     /*
      * Callback Handler Declarations
      */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
     void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
 };

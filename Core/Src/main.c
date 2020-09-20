@@ -153,6 +153,8 @@ static int egt = 0;
 static int egt_2 = 0;
 static int tps = 0;
 static float batt_v = 0;
+static float ing_ang = 0;
+static int emu_errors= 0;
 
 extern xQueueHandle messageQ;
 extern xQueueHandle settingsMessageQ;
@@ -182,9 +184,12 @@ void SecondTask(void const* argument)
 			egt_2 = (egt >= 760) ? 500: egt_2 +12;
 			tps = (tps >= 100) ? 0: tps + 4;
 			batt_v = (batt_v >= 20.0) ? 10.0: batt_v + 0.6;
+			ing_ang = (ing_ang >= 20.0) ? 10.0: ing_ang + 0.6;
+			emu_errors = 0;
 		}
 
-		display_values dispVals = {rpm, clt, map, lambda, lambda_targ, oil_tmp, oil_press, fuel_press, iat, egt, egt_2, tps, batt_v};
+		display_values dispVals = {rpm, clt, map, lambda, lambda_targ, oil_tmp, oil_press, fuel_press, iat, egt, egt_2, tps, batt_v,
+		ing_ang, emu_errors};
 	    xQueueSend(messageQ, &dispVals,0);
 		osDelay(50);
 	}
@@ -530,9 +535,12 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
   if ((RxHeader.StdId == 0x603) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
   {
+	 uint8_t ing_ang_in = RxData[0];
 	 uint8_t lambda_in = RxData[2];
 	 uint16_t egt_1_in = (RxData[4] << 0) | (RxData[5] << 8);
 	 uint16_t egt_2_in = (RxData[6] << 0) | (RxData[7] << 8);
+
+	 ing_ang = ((float) ing_ang_in) * 0.5f;
 	 lambda = ((float)lambda_in)*0.0078125f;
 	 egt = (int)egt_1_in;
 	 egt_2 = (int)egt_2_in;
@@ -541,9 +549,12 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   if ((RxHeader.StdId == 0x604) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
   {
 	 uint16_t batt_in = (RxData[2] << 0) | (RxData[3] << 8);
+	 uint16_t emu_errors_in = (RxData[4] << 0) | (RxData[5] << 8);
 	 float battery_voltage = ((float)batt_in)*0.027f;
 	 batt_v = battery_voltage;
 	 (void)batt_v;
+	 emu_errors = (int) emu_errors_in;
+
   }
 
   if ((RxHeader.StdId == 0x500) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 3))

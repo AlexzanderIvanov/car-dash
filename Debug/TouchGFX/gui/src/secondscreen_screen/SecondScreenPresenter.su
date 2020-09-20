@@ -8,8 +8,10 @@ ModelListener.hpp:20:13:ModelListener::~ModelListener()	16	static
 ModelListener.hpp:20:13:virtual ModelListener::~ModelListener()	16	static
 ModelListener.hpp:31:18:virtual void ModelListener::setNewValue(uint8_t*)	16	static
 ModelListener.hpp:32:18:virtual void ModelListener::updateDisplaySettings(uint8_t*)	16	static
-SecondScreenPresenter.hpp:28:13:SecondScreenPresenter::~SecondScreenPresenter()	16	static
-SecondScreenPresenter.hpp:28:13:virtual SecondScreenPresenter::~SecondScreenPresenter()	16	static
+SecondScreenPresenter.hpp:27:10:SecondScreenPresenter::~SecondScreenPresenter()	16	static
+SecondScreenPresenter.hpp:27:10:virtual SecondScreenPresenter::~SecondScreenPresenter()	16	static
 SecondScreenPresenter.cpp:4:1:SecondScreenPresenter::SecondScreenPresenter(SecondScreenView&)	16	static
 SecondScreenPresenter.cpp:10:6:virtual void SecondScreenPresenter::activate()	16	static
 SecondScreenPresenter.cpp:15:6:virtual void SecondScreenPresenter::deactivate()	16	static
+SecondScreenPresenter.cpp:20:6:virtual void SecondScreenPresenter::setNewValue(uint8_t*)	16	static
+SecondScreenPresenter.cpp:25:6:virtual void SecondScreenPresenter::updateDisplaySettings(uint8_t*)	16	static

@@ -19,6 +19,8 @@ typedef struct {
    int    egt_2;
    int	  tps;
    float	  batt_v;
+   float ing_ang;
+   int emu_errors;
 } display_values;
 
 typedef struct {

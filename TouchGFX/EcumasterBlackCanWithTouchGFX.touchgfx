@@ -13,8 +13,8 @@
             "Name": "backgroundBox",
             "X": 0,
             "Y": 0,
-            "Width": 800,
-            "Height": 480,
+            "Width": 488,
+            "Height": 278,
             "Type": "Box",
             "Visible": true,
             "Draggable": false,
@@ -1172,21 +1172,168 @@
             "Clickable": false,
             "Fadeable": false,
             "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId76",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "TextId": "SingleUseId77",
+              "UseBuffer": true,
+              "BufferSize": 5
+            },
+            "Name": "IngAngValue",
+            "X": 12,
+            "Y": 11,
+            "Width": 71,
+            "Height": 42,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId78",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 220,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "IgnAngDescriptor",
+            "X": 12,
+            "Y": 53,
+            "Width": 71,
+            "Height": 21,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId79",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 220,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "TextId": "SingleUseId80",
+              "UseBuffer": true,
+              "BufferSize": 35
+            },
+            "Name": "ErrorMessage",
+            "X": 193,
+            "Y": 205,
+            "Width": 95,
+            "Height": 21,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Pressed": "iconfinder_next_6290417.png",
+            "Released": "iconfinder_next_6290417.png",
+            "Alpha": 255,
+            "Name": "nextErrorButton",
+            "X": 256,
+            "Y": 226,
+            "Width": 32,
+            "Height": 32,
+            "Type": "Button",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Pressed": "iconfinder_7_Sound_Off_3279057.png",
+            "Released": "iconfinder_7_Sound_Off_3279057.png",
+            "Alpha": 255,
+            "Name": "clearErrorsBtn",
+            "X": 193,
+            "Y": 226,
+            "Width": 32,
+            "Height": 32,
+            "Type": "Button",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "Interaction1",
+            "InteractionName": "MoveToMainScreenInteraction",
             "HasCompletedTrigger": false,
+            "Trigger": {
+              "InteractionToTriggerOn": "MoveToMainScreenBtnInteraction",
+              "Type": "TriggerInteractionCompleted"
+            },
+            "Action": {
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "Main",
+              "Type": "ActionGotoScreen"
+            }
+          },
+          {
+            "InteractionName": "DisplayNextErrorInteraction",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "TriggerComponent": "nextErrorButton",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "nextError",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "ClearErrorsInteraction",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "TriggerComponent": "clearErrorsBtn",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "clearErrors",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "MoveToMainScreenBtnInteraction",
+            "HasCompletedTrigger": true,
             "Trigger": {
               "TriggerComponent": "ButtonGoToMainScreen",
               "Type": "TriggerClicked"
             },
             "Action": {
-              "ScreenTransitionType": "ScreenTransitionSlide",
-              "ScreenTransitionDirection": "East",
-              "ActionComponent": "Main",
-              "Type": "ActionGotoScreen"
+              "FunctionName": "moveToMainScreen",
+              "Type": "ActionCustom"
             }
           }
         ],
@@ -1412,6 +1559,70 @@
       {
         "TextEntryId": "SingleUseId75",
         "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId76",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId77",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId78",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId79",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId80",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "COOLANT_SENSOR_FAILURE",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "NO_ERRORS",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "KNOCKING",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "IAT_SENSOR_FAILURE",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "MAP_SENSOR_FAILURE",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "O2_SENSOR_FAILED",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "EGT1_SESNSOR_FAILED",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "EGT2_SENSOR_FAILED",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "EGT_HIGH",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "DBW_SENSOR_FAILED",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "FPR_RELATIVE_ERROR",
+        "IsResource": true
       }
     ],
     "Name": "EcumasterBlackCanWithTouchGFX",

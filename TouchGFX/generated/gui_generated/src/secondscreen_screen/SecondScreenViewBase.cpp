@@ -42,12 +42,80 @@ SecondScreenViewBase::SecondScreenViewBase() :
     ErrorMessage.setTypedText(touchgfx::TypedText(T_SINGLEUSEID79));
 
     nextErrorButton.setXY(256, 226);
+    nextErrorButton.setVisible(false);
     nextErrorButton.setBitmaps(touchgfx::Bitmap(BITMAP_ICONFINDER_NEXT_6290417_ID), touchgfx::Bitmap(BITMAP_ICONFINDER_NEXT_6290417_ID));
     nextErrorButton.setAction(buttonCallback);
 
     clearErrorsBtn.setXY(193, 226);
+    clearErrorsBtn.setVisible(false);
     clearErrorsBtn.setBitmaps(touchgfx::Bitmap(BITMAP_ICONFINDER_7_SOUND_OFF_3279057_ID), touchgfx::Bitmap(BITMAP_ICONFINDER_7_SOUND_OFF_3279057_ID));
     clearErrorsBtn.setAction(buttonCallback);
+
+    VeValue.setPosition(102, 11, 71, 42);
+    VeValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    VeValue.setLinespacing(0);
+    Unicode::snprintf(VeValueBuffer, VEVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID82).getText());
+    VeValue.setWildcard(VeValueBuffer);
+    VeValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID81));
+
+    VeDescriptor.setXY(127, 53);
+    VeDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
+    VeDescriptor.setLinespacing(0);
+    VeDescriptor.setTypedText(touchgfx::TypedText(T_SINGLEUSEID83));
+
+    BoostDcValue.setPosition(195, 11, 71, 42);
+    BoostDcValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    BoostDcValue.setLinespacing(0);
+    Unicode::snprintf(BoostDcValueBuffer, BOOSTDCVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID85).getText());
+    BoostDcValue.setWildcard(BoostDcValueBuffer);
+    BoostDcValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID84));
+
+    BoostDcDescriptior.setXY(194, 53);
+    BoostDcDescriptior.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
+    BoostDcDescriptior.setLinespacing(0);
+    BoostDcDescriptior.setTypedText(touchgfx::TypedText(T_SINGLEUSEID86));
+
+    BoostTrgtValue.setPosition(294, 11, 71, 42);
+    BoostTrgtValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    BoostTrgtValue.setLinespacing(0);
+    Unicode::snprintf(BoostTrgtValueBuffer, BOOSTTRGTVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID88).getText());
+    BoostTrgtValue.setWildcard(BoostTrgtValueBuffer);
+    BoostTrgtValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID87));
+
+    BoostTrgtDescriptior.setXY(288, 53);
+    BoostTrgtDescriptior.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
+    BoostTrgtDescriptior.setLinespacing(0);
+    BoostTrgtDescriptior.setTypedText(touchgfx::TypedText(T_SINGLEUSEID89));
+
+    InjctorDcValue.setPosition(391, 11, 71, 42);
+    InjctorDcValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    InjctorDcValue.setLinespacing(0);
+    Unicode::snprintf(InjctorDcValueBuffer, INJCTORDCVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID91).getText());
+    InjctorDcValue.setWildcard(InjctorDcValueBuffer);
+    InjctorDcValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID90));
+
+    InjectorDcDescriptior.setXY(382, 53);
+    InjectorDcDescriptior.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
+    InjectorDcDescriptior.setLinespacing(0);
+    InjectorDcDescriptior.setTypedText(touchgfx::TypedText(T_SINGLEUSEID92));
+
+    CheckEngCodeValue.setXY(12, 237);
+    CheckEngCodeValue.setVisible(false);
+    CheckEngCodeValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
+    CheckEngCodeValue.setLinespacing(0);
+    Unicode::snprintf(CheckEngCodeValueBuffer, CHECKENGCODEVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID94).getText());
+    CheckEngCodeValue.setWildcard(CheckEngCodeValueBuffer);
+    CheckEngCodeValue.resizeToCurrentText();
+    CheckEngCodeValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID93));
+
+    EngProtCodeValue.setXY(314, 232);
+    EngProtCodeValue.setVisible(false);
+    EngProtCodeValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
+    EngProtCodeValue.setLinespacing(0);
+    Unicode::snprintf(EngProtCodeValueBuffer, ENGPROTCODEVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID96).getText());
+    EngProtCodeValue.setWildcard(EngProtCodeValueBuffer);
+    EngProtCodeValue.resizeToCurrentText();
+    EngProtCodeValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID95));
 
     add(backgroundBox);
     add(ButtonGoToMainScreen);
@@ -56,6 +124,16 @@ SecondScreenViewBase::SecondScreenViewBase() :
     add(ErrorMessage);
     add(nextErrorButton);
     add(clearErrorsBtn);
+    add(VeValue);
+    add(VeDescriptor);
+    add(BoostDcValue);
+    add(BoostDcDescriptior);
+    add(BoostTrgtValue);
+    add(BoostTrgtDescriptior);
+    add(InjctorDcValue);
+    add(InjectorDcDescriptior);
+    add(CheckEngCodeValue);
+    add(EngProtCodeValue);
 }
 
 void SecondScreenViewBase::setupScreen()

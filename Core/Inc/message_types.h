@@ -21,6 +21,13 @@ typedef struct {
    float	  batt_v;
    float ing_ang;
    int emu_errors;
+   int emu_protection;
+   float ve;
+   float boost_dc;
+   int boost_trgt;
+   float injector_dc;
+   int check_eng_code;
+   int eng_protection_code;
 } display_values;
 
 typedef struct {

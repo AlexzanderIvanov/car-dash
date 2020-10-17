@@ -154,7 +154,14 @@ static int egt_2 = 0;
 static int tps = 0;
 static float batt_v = 0;
 static float ing_ang = 0;
-static int emu_errors= 0;
+static int emu_errors = 0;
+static int emu_protection = 0;
+static float ve = 0;
+static float boost_dc = 0;
+static int boost_trgt = 0;
+static float injector_dc = 0;
+static int check_eng_code = 0;
+static int eng_protection_code = 0;
 
 extern xQueueHandle messageQ;
 extern xQueueHandle settingsMessageQ;
@@ -185,11 +192,18 @@ void SecondTask(void const* argument)
 			tps = (tps >= 100) ? 0: tps + 4;
 			batt_v = (batt_v >= 20.0) ? 10.0: batt_v + 0.6;
 			ing_ang = (ing_ang >= 20.0) ? 10.0: ing_ang + 0.6;
+			ve = (ve >= 21.0) ? 10.0: ve + 0.6;
+			boost_dc = (boost_dc >= 20.0) ? 10.0: boost_dc + 0.6;
+			boost_trgt = (boost_trgt >= 23) ? 10: boost_trgt + 1;
+			injector_dc = (injector_dc >= 24.0) ? 10.0: injector_dc + 0.6;
 			emu_errors = 0;
+			emu_protection = 0;
+			eng_protection_code = 0;
+			check_eng_code = 0;
 		}
 
 		display_values dispVals = {rpm, clt, map, lambda, lambda_targ, oil_tmp, oil_press, fuel_press, iat, egt, egt_2, tps, batt_v,
-		ing_ang, emu_errors};
+		ing_ang, emu_errors, emu_protection, ve, boost_dc, boost_trgt, injector_dc, check_eng_code, eng_protection_code};
 	    xQueueSend(messageQ, &dispVals,0);
 		osDelay(50);
 	}
@@ -557,13 +571,34 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
   }
 
-  if ((RxHeader.StdId == 0x500) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 3))
+  if ((RxHeader.StdId == 0x500) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
     {
   	 uint8_t lambda_targ_in = RxData[0];
   	 uint16_t fuel_p_d = (RxData[1] << 0) | (RxData[2] << 8);
+	 uint16_t ve_in = (RxData[3] << 0) | (RxData[4] << 8);
+	 uint8_t boost_trgt_in = RxData[5];
+	 uint8_t emu_protection_in = RxData[5];
+	 uint8_t injector_dc_in = RxData[7];
+
   	 lambda_targ = ((float)lambda_targ_in) / 100;
   	 fuel_press = ((int)fuel_p_d);
+  	 ve = (float) ve_in;
+  	 boost_trgt = (int) boost_trgt_in;
+  	 emu_protection = (int) emu_protection_in;
+  	 injector_dc = (float) injector_dc_in;
     }
+
+  if ((RxHeader.StdId == 0x501) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 3))
+  {
+	uint8_t eng_protection_code_in = RxData[0];
+	uint8_t check_eng_code_in = RxData[1];
+	 uint8_t boost_dc_in = RxData[2];
+
+	 eng_protection_code = (int)eng_protection_code_in;
+	 check_eng_code = (int) check_eng_code_in;
+	 boost_dc = (float) boost_dc_in;
+
+  }
 }
 
 /* USER CODE END CAN1_Init 2 */

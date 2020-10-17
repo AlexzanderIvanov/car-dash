@@ -114,7 +114,8 @@ void MainView::updateVal(uint8_t *newValue) {
 	display_values *values = (display_values*) newValue;
 
 	bool on_rev_limiter = values->rpm >= rev_limit;
-	bool has_error = ((int) values->emu_errors) > 0;
+	bool has_error = ((int) values->emu_errors) > 0 || ((int) values->emu_protection) > 0
+			|| ((int) values->check_eng_code) > 0 || ((int) values->eng_protection_code) > 0;
 	if (has_error) {
 		backgroundBox.setColor(getRedColor());
 		backgroundBox.invalidate();

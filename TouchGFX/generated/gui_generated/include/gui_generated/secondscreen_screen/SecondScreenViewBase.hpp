@@ -53,6 +53,16 @@ protected:
     touchgfx::TextAreaWithOneWildcard ErrorMessage;
     touchgfx::Button nextErrorButton;
     touchgfx::Button clearErrorsBtn;
+    touchgfx::TextAreaWithOneWildcard VeValue;
+    touchgfx::TextArea VeDescriptor;
+    touchgfx::TextAreaWithOneWildcard BoostDcValue;
+    touchgfx::TextArea BoostDcDescriptior;
+    touchgfx::TextAreaWithOneWildcard BoostTrgtValue;
+    touchgfx::TextArea BoostTrgtDescriptior;
+    touchgfx::TextAreaWithOneWildcard InjctorDcValue;
+    touchgfx::TextArea InjectorDcDescriptior;
+    touchgfx::TextAreaWithOneWildcard CheckEngCodeValue;
+    touchgfx::TextAreaWithOneWildcard EngProtCodeValue;
 
     /*
      * Wildcard Buffers
@@ -61,6 +71,18 @@ protected:
     touchgfx::Unicode::UnicodeChar IngAngValueBuffer[INGANGVALUE_SIZE];
     static const uint16_t ERRORMESSAGE_SIZE = 35;
     touchgfx::Unicode::UnicodeChar ErrorMessageBuffer[ERRORMESSAGE_SIZE];
+    static const uint16_t VEVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar VeValueBuffer[VEVALUE_SIZE];
+    static const uint16_t BOOSTDCVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar BoostDcValueBuffer[BOOSTDCVALUE_SIZE];
+    static const uint16_t BOOSTTRGTVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar BoostTrgtValueBuffer[BOOSTTRGTVALUE_SIZE];
+    static const uint16_t INJCTORDCVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar InjctorDcValueBuffer[INJCTORDCVALUE_SIZE];
+    static const uint16_t CHECKENGCODEVALUE_SIZE = 35;
+    touchgfx::Unicode::UnicodeChar CheckEngCodeValueBuffer[CHECKENGCODEVALUE_SIZE];
+    static const uint16_t ENGPROTCODEVALUE_SIZE = 35;
+    touchgfx::Unicode::UnicodeChar EngProtCodeValueBuffer[ENGPROTCODEVALUE_SIZE];
 
 private:
 

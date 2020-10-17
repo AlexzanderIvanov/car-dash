@@ -18,6 +18,7 @@ Drawable.hpp:415:18:virtual void touchgfx::Drawable::handleClickEvent(const touc
 Drawable.hpp:427:18:virtual void touchgfx::Drawable::handleGestureEvent(const touchgfx::GestureEvent&)	16	static
 Drawable.hpp:439:18:virtual void touchgfx::Drawable::handleDragEvent(const touchgfx::DragEvent&)	16	static
 Drawable.hpp:452:18:virtual void touchgfx::Drawable::handleTickEvent()	16	static
+Drawable.hpp:468:10:void touchgfx::Drawable::setVisible(bool)	16	static
 Drawable.hpp:482:10:void touchgfx::Drawable::setTouchable(bool)	16	static
 Drawable.hpp:499:10:bool touchgfx::Drawable::isVisible() const	16	static
 Drawable.hpp:515:10:bool touchgfx::Drawable::isTouchable() const	16	static
@@ -100,10 +101,10 @@ SecondScreenViewBase.hpp:31:18:virtual void SecondScreenViewBase::clearErrors()	
 SecondScreenViewBase.hpp:36:18:virtual void SecondScreenViewBase::moveToMainScreen()	16	static
 SecondScreenViewBase.hpp:42:26:FrontendApplication& SecondScreenViewBase::application()	16	static
 Color.hpp:54:22:static touchgfx::colortype touchgfx::Color::getColorFrom24BitRGB(uint8_t, uint8_t, uint8_t)	24	static
-SecondScreenViewBase.cpp:9:1:SecondScreenViewBase::SecondScreenViewBase()	96	static
-SecondScreenViewBase.cpp:61:6:virtual void SecondScreenViewBase::setupScreen()	16	static
-SecondScreenViewBase.cpp:66:6:void SecondScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	16	static
-SecondScreenViewBase.cpp:84:6:void SecondScreenViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer&)	16	static
+SecondScreenViewBase.cpp:9:1:SecondScreenViewBase::SecondScreenViewBase()	160	static
+SecondScreenViewBase.cpp:139:6:virtual void SecondScreenViewBase::setupScreen()	16	static
+SecondScreenViewBase.cpp:144:6:void SecondScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	16	static
+SecondScreenViewBase.cpp:162:6:void SecondScreenViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer&)	16	static
 BoxWithBorderButtonStyle.hpp:63:13:touchgfx::BoxWithBorderButtonStyle<T>::~BoxWithBorderButtonStyle() [with T = touchgfx::ClickButtonTrigger]	16	static
 BoxWithBorderButtonStyle.hpp:63:13:touchgfx::BoxWithBorderButtonStyle<T>::~BoxWithBorderButtonStyle() [with T = touchgfx::ClickButtonTrigger]	16	static
 View.hpp:50:5:touchgfx::View<T>::View() [with T = SecondScreenPresenter]	16	static

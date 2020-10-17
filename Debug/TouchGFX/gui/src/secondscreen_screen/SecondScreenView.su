@@ -80,19 +80,19 @@ SecondScreenViewBase.hpp:20:13:virtual SecondScreenViewBase::~SecondScreenViewBa
 SecondScreenView.hpp:10:10:SecondScreenView::~SecondScreenView()	16	static
 SecondScreenView.hpp:10:10:virtual SecondScreenView::~SecondScreenView()	16	static
 Color.hpp:54:22:static touchgfx::colortype touchgfx::Color::getColorFrom24BitRGB(uint8_t, uint8_t, uint8_t)	24	static
-SecondScreenView.cpp:15:1:SecondScreenView::SecondScreenView()	16	static
-SecondScreenView.cpp:19:18:touchgfx::colortype getBlackColor()	16	static
-SecondScreenView.cpp:24:18:touchgfx::colortype getRedColor()	16	static
-SecondScreenView.cpp:29:18:touchgfx::colortype getColorForErrors()	24	static
-SecondScreenView.cpp:60:6:virtual void SecondScreenView::setupScreen()	16	static
-SecondScreenView.cpp:64:6:virtual void SecondScreenView::tearDownScreen()	16	static
-SecondScreenView.cpp:68:6:void SecondScreenView::updateSettings(uint8_t*)	16	static
-SecondScreenView.cpp:71:13:bool isKthBitSet(int, int)	16	static
-SecondScreenView.cpp:80:14:TEXTS getErrorText(int)	24	static
-SecondScreenView.cpp:120:6:void SecondScreenView::updateVal(uint8_t*)	88	static
-SecondScreenView.cpp:208:6:virtual void SecondScreenView::clearErrors()	32	static
-SecondScreenView.cpp:217:6:virtual void SecondScreenView::nextError()	16	static
-SecondScreenView.cpp:233:6:virtual void SecondScreenView::moveToMainScreen()	16	static
+SecondScreenView.cpp:23:1:SecondScreenView::SecondScreenView()	16	static
+SecondScreenView.cpp:27:18:touchgfx::colortype getBlackColor()	16	static
+SecondScreenView.cpp:32:18:touchgfx::colortype getRedColor()	16	static
+SecondScreenView.cpp:37:18:touchgfx::colortype getColorForErrors()	24	static
+SecondScreenView.cpp:68:6:virtual void SecondScreenView::setupScreen()	16	static
+SecondScreenView.cpp:72:6:virtual void SecondScreenView::tearDownScreen()	16	static
+SecondScreenView.cpp:76:6:void SecondScreenView::updateSettings(uint8_t*)	16	static
+SecondScreenView.cpp:79:13:bool isKthBitSet(int, int)	16	static
+SecondScreenView.cpp:87:14:TEXTS getErrorText(int)	24	static
+SecondScreenView.cpp:127:6:void SecondScreenView::updateVal(uint8_t*)	104	static
+SecondScreenView.cpp:319:6:virtual void SecondScreenView::clearErrors()	32	static
+SecondScreenView.cpp:333:6:virtual void SecondScreenView::nextError()	16	static
+SecondScreenView.cpp:349:6:virtual void SecondScreenView::moveToMainScreen()	16	static
 BoxWithBorderButtonStyle.hpp:63:13:touchgfx::BoxWithBorderButtonStyle<T>::~BoxWithBorderButtonStyle() [with T = touchgfx::ClickButtonTrigger]	16	static
 BoxWithBorderButtonStyle.hpp:63:13:touchgfx::BoxWithBorderButtonStyle<T>::~BoxWithBorderButtonStyle() [with T = touchgfx::ClickButtonTrigger]	16	static
 TextAreaWithWildcard.hpp:63:7:touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	16	static

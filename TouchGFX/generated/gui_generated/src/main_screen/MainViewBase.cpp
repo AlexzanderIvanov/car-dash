@@ -272,6 +272,18 @@ MainViewBase::MainViewBase() :
     BtnGoToSecondScreen.setAlpha(0);
     BtnGoToSecondScreen.setAction(flexButtonCallback);
 
+    KMHValue.setPosition(47, 214, 67, 42);
+    KMHValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    KMHValue.setLinespacing(0);
+    Unicode::snprintf(KMHValueBuffer, KMHVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID98).getText());
+    KMHValue.setWildcard(KMHValueBuffer);
+    KMHValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID97));
+
+    KMHDescriptor.setXY(116, 229);
+    KMHDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
+    KMHDescriptor.setLinespacing(0);
+    KMHDescriptor.setTypedText(touchgfx::TypedText(T_SINGLEUSEID99));
+
     add(backgroundBox);
     add(KpaDescriptor);
     add(CltDecsriptor);
@@ -313,6 +325,8 @@ MainViewBase::MainViewBase() :
     add(FuelPDescriptor);
     add(TpsNumberValue);
     add(BtnGoToSecondScreen);
+    add(KMHValue);
+    add(KMHDescriptor);
 }
 
 void MainViewBase::setupScreen()

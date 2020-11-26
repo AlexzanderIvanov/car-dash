@@ -28,9 +28,11 @@ typedef struct {
    float injector_dc;
    int check_eng_code;
    int eng_protection_code;
+   int vspd;
 } display_values;
 
 typedef struct {
+	int    rpm_limit_warning;
 	int    rpm_limit;
 	int    rpm1;
 	int    rpm2;

@@ -76,6 +76,8 @@ protected:
     touchgfx::TextArea FuelPDescriptor;
     touchgfx::TextAreaWithOneWildcard TpsNumberValue;
     touchgfx::BoxWithBorderButtonStyle< touchgfx::TouchButtonTrigger > BtnGoToSecondScreen;
+    touchgfx::TextAreaWithOneWildcard KMHValue;
+    touchgfx::TextArea KMHDescriptor;
 
     /*
      * Wildcard Buffers
@@ -122,6 +124,8 @@ protected:
     touchgfx::Unicode::UnicodeChar FuelPValueBuffer[FUELPVALUE_SIZE];
     static const uint16_t TPSNUMBERVALUE_SIZE = 5;
     touchgfx::Unicode::UnicodeChar TpsNumberValueBuffer[TPSNUMBERVALUE_SIZE];
+    static const uint16_t KMHVALUE_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar KMHValueBuffer[KMHVALUE_SIZE];
 
 private:
 

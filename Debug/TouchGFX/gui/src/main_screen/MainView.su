@@ -34,7 +34,6 @@ Screen.hpp:140:18:virtual void touchgfx::Screen::afterTransition()	16	static
 Screen.hpp:153:18:virtual void touchgfx::Screen::tearDownScreen()	16	static
 Screen.hpp:198:18:virtual void touchgfx::Screen::handleTickEvent()	16	static
 Screen.hpp:213:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	16	static
-MainPresenter.hpp:34:7:bool MainPresenter::getManualErrorChangeScreen()	16	static
 Widget.hpp:53:13:touchgfx::Widget::~Widget()	16	static
 Widget.hpp:53:13:virtual touchgfx::Widget::~Widget()	16	static
 Widget.hpp:74:18:virtual void touchgfx::Widget::getLastChild(int16_t, int16_t, touchgfx::Drawable**)	24	static
@@ -77,14 +76,15 @@ MainViewBase.hpp:24:13:virtual MainViewBase::~MainViewBase()	16	static
 MainView.hpp:11:13:MainView::~MainView()	16	static
 MainView.hpp:11:13:virtual MainView::~MainView()	16	static
 Color.hpp:54:22:static touchgfx::colortype touchgfx::Color::getColorFrom24BitRGB(uint8_t, uint8_t, uint8_t)	24	static
-MainView.cpp:24:1:MainView::MainView()	24	static
-MainView.cpp:34:6:virtual void MainView::setupScreen()	16	static
-MainView.cpp:37:6:virtual void MainView::tearDownScreen()	16	static
-MainView.cpp:40:18:touchgfx::colortype getRedColor()	16	static
-MainView.cpp:45:18:touchgfx::colortype getBlackColor()	16	static
-MainView.cpp:50:18:touchgfx::colortype getColorFromRevLimit()	24	static
-MainView.cpp:77:6:void MainView::updateSettings(uint8_t*)	32	static
-MainView.cpp:112:6:void MainView::updateVal(uint8_t*)	32	static
+MainView.cpp:26:1:MainView::MainView()	24	static
+MainView.cpp:36:6:virtual void MainView::setupScreen()	16	static
+MainView.cpp:39:6:virtual void MainView::tearDownScreen()	16	static
+MainView.cpp:42:18:touchgfx::colortype getYellowColor()	16	static
+MainView.cpp:47:18:touchgfx::colortype getRedColor()	16	static
+MainView.cpp:52:18:touchgfx::colortype getBlackColor()	16	static
+MainView.cpp:57:18:touchgfx::colortype getColorFromRevLimit()	24	static
+MainView.cpp:84:6:void MainView::updateSettings(uint8_t*)	32	static
+MainView.cpp:120:6:void MainView::updateVal(uint8_t*)	32	static
 BoxWithBorderButtonStyle.hpp:63:13:touchgfx::BoxWithBorderButtonStyle<T>::~BoxWithBorderButtonStyle() [with T = touchgfx::TouchButtonTrigger]	16	static
 BoxWithBorderButtonStyle.hpp:63:13:touchgfx::BoxWithBorderButtonStyle<T>::~BoxWithBorderButtonStyle() [with T = touchgfx::TouchButtonTrigger]	16	static
 TextAreaWithWildcard.hpp:63:7:touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	16	static

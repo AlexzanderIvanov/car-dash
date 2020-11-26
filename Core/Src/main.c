@@ -145,6 +145,7 @@ static int clt = 110;
 static float lambda = 0.77f;
 static float lambda_targ = 0.81f;
 
+static int vspd = 0;
 static int oil_tmp = 0;
 static float oil_press = 0;
 static int fuel_press = 0;
@@ -169,11 +170,11 @@ extern xQueueHandle settingsMessageQ;
 void SecondTask(void const* argument)
 {
 
-	settings_message settings_val = {6500, 1, 2, 3, 4, 5, 6, 7, 8, 0};
+	settings_message settings_val = {6200, 6500, 1, 2, 3, 4, 5, 6, 7, 8, 0};
 	xQueueSend(settingsMessageQ, &settings_val,0);
 	osDelay(150);
 
-	static const int demo_mode = 0;
+	static const int demo_mode = 1;
 	for(;;)
 	{
 		if(demo_mode)
@@ -188,7 +189,7 @@ void SecondTask(void const* argument)
 			fuel_press = (fuel_press >= 100) ? 1: iat + 2;
 			iat = (iat >= 100) ? 1: iat + 2;
 			egt = (egt >= 760) ? 500: egt +12;
-			egt_2 = (egt >= 760) ? 500: egt_2 +12;
+			egt_2 = (egt_2 >= 760) ? 500: egt_2 +12;
 			tps = (tps >= 100) ? 0: tps + 4;
 			batt_v = (batt_v >= 20.0) ? 10.0: batt_v + 0.6;
 			ing_ang = (ing_ang >= 20.0) ? 10.0: ing_ang + 0.6;
@@ -196,6 +197,7 @@ void SecondTask(void const* argument)
 			boost_dc = (boost_dc >= 20.0) ? 10.0: boost_dc + 0.6;
 			boost_trgt = (boost_trgt >= 23) ? 10: boost_trgt + 1;
 			injector_dc = (injector_dc >= 24.0) ? 10.0: injector_dc + 0.6;
+			vspd = (vspd >= 300) ? 100: vspd + 2;
 			emu_errors = 0;
 			emu_protection = 0;
 			eng_protection_code = 0;
@@ -203,7 +205,7 @@ void SecondTask(void const* argument)
 		}
 
 		display_values dispVals = {rpm, clt, map, lambda, lambda_targ, oil_tmp, oil_press, fuel_press, iat, egt, egt_2, tps, batt_v,
-		ing_ang, emu_errors, emu_protection, ve, boost_dc, boost_trgt, injector_dc, check_eng_code, eng_protection_code};
+		ing_ang, emu_errors, emu_protection, ve, boost_dc, boost_trgt, injector_dc, check_eng_code, eng_protection_code, vspd};
 	    xQueueSend(messageQ, &dispVals,0);
 		osDelay(50);
 	}
@@ -538,10 +540,12 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
   if ((RxHeader.StdId == 0x602) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
   {
+	 uint16_t vspd_in = (RxData[0] << 0) | (RxData[1] << 8);
 	 uint8_t oil_tmp_in = RxData[3];
 	 uint8_t oil_press_in = RxData[4];
 	 uint16_t clt_in = (RxData[6] << 0) | (RxData[7] << 8);
 
+	 vspd = (int) vspd_in;
 	 oil_tmp = ((int)oil_tmp_in) * 1;
 	 oil_press = ((int)oil_press_in) * 0.0625f;
 	 clt = ((int)clt_in) * 1;

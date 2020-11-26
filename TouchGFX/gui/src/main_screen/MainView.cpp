@@ -4,6 +4,7 @@
 #include <touchgfx/Color.hpp>
 
 static int color_index = 0;
+static int rev_limit_warning = 6200;
 static int rev_limit = 9000;
 
 static int prev_rpm = 100;
@@ -20,6 +21,7 @@ static int prev_egt = 0;
 static int prev_egt_2 = 0;
 static int prev_tps = 0;
 static float prev_batt_v = 0;
+static int prev_vspd = 0;
 
 MainView::MainView() {
 	// Support of larger displays for this example
@@ -35,6 +37,11 @@ void MainView::setupScreen() {
 }
 
 void MainView::tearDownScreen() {
+}
+
+static colortype getYellowColor() {
+	colortype black_color = touchgfx::Color::getColorFrom24BitRGB(255, 255, 0);
+	return black_color;
 }
 
 static colortype getRedColor() {
@@ -77,6 +84,7 @@ static colortype getColorFromRevLimit() {
 void MainView::updateSettings(uint8_t *settings) {
 	settings_message *new_settings = (settings_message*) settings;
 
+	rev_limit_warning = (int) new_settings->rpm_limit_warning;
 	rev_limit = (int) new_settings->rpm_limit;
 
 	RPMProgressBar.setRange(0, (int) (new_settings->rpm8 * 1000.0f), 0, 0);
@@ -113,11 +121,18 @@ void MainView::updateVal(uint8_t *newValue) {
 	static bool background_is_black = false;
 	display_values *values = (display_values*) newValue;
 
+	bool on_rev_limit_warning = values->rpm >= rev_limit_warning;
 	bool on_rev_limiter = values->rpm >= rev_limit;
-	bool has_error = ((int) values->emu_errors) > 0 || ((int) values->emu_protection) > 0
-			|| ((int) values->check_eng_code) > 0 || ((int) values->eng_protection_code) > 0;
-	if (has_error) {
-		backgroundBox.setColor(getRedColor());
+	//Commented because of strange behavior of EMU error codes. It is not reliable and irritating at this stage.
+//	bool has_error = ((int) values->emu_errors) > 0 || ((int) values->emu_protection) > 0
+//			|| ((int) values->check_eng_code) > 0 || ((int) values->eng_protection_code) > 0;
+//	if (has_error) {
+//		backgroundBox.setColor(getRedColor());
+//		backgroundBox.invalidate();
+//	} else
+	if(on_rev_limit_warning && !on_rev_limiter) {
+		background_is_black = false;
+		backgroundBox.setColor(getYellowColor());
 		backgroundBox.invalidate();
 	} else if (on_rev_limiter) {
 		background_is_black = false;
@@ -219,7 +234,15 @@ void MainView::updateVal(uint8_t *newValue) {
 		BatteryVoltage.invalidate();
 	}
 
-	if (has_error && !presenter->getManualErrorChangeScreen()) {
-		static_cast<FrontendApplication*>(Application::getInstance())->gotoSecondScreenScreenSlideTransitionEast();
-	}
+	if (values->vspd != prev_vspd) {
+		prev_vspd = values->vspd;
+			Unicode::snprintf(KMHValueBuffer, KMHVALUE_SIZE,
+					"%d", values->vspd);
+			KMHValue.invalidate();
+		}
+
+	//Commented because of strange behavior of EMU error codes. Need USB to CAN to trace the problem.
+//	if (has_error && !presenter->getManualErrorChangeScreen()) {
+//		static_cast<FrontendApplication*>(Application::getInstance())->gotoSecondScreenScreenSlideTransitionEast();
+//	}
 }

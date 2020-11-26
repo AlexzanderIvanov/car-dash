@@ -99,9 +99,9 @@ MainViewBase.hpp:24:13:MainViewBase::~MainViewBase()	16	static
 MainViewBase.hpp:24:13:virtual MainViewBase::~MainViewBase()	16	static
 MainViewBase.hpp:28:26:FrontendApplication& MainViewBase::application()	16	static
 Color.hpp:54:22:static touchgfx::colortype touchgfx::Color::getColorFrom24BitRGB(uint8_t, uint8_t, uint8_t)	24	static
-MainViewBase.cpp:9:1:MainViewBase::MainViewBase()	288	static
-MainViewBase.cpp:318:6:virtual void MainViewBase::setupScreen()	16	static
-MainViewBase.cpp:323:6:void MainViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer&)	16	static
+MainViewBase.cpp:9:1:MainViewBase::MainViewBase()	296	static
+MainViewBase.cpp:332:6:virtual void MainViewBase::setupScreen()	16	static
+MainViewBase.cpp:337:6:void MainViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer&)	16	static
 BoxWithBorderButtonStyle.hpp:63:13:touchgfx::BoxWithBorderButtonStyle<T>::~BoxWithBorderButtonStyle() [with T = touchgfx::TouchButtonTrigger]	16	static
 BoxWithBorderButtonStyle.hpp:63:13:touchgfx::BoxWithBorderButtonStyle<T>::~BoxWithBorderButtonStyle() [with T = touchgfx::TouchButtonTrigger]	16	static
 View.hpp:50:5:touchgfx::View<T>::View() [with T = MainPresenter]	16	static

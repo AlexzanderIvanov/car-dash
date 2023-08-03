@@ -45,6 +45,16 @@ public:
     void setManualErrorChangeScreen();
     bool getManualErrorChangeScreen();
 
+    int getTpmsIdFr();
+    int getTpmsIdRr();
+    int getTpmsIdRl();
+    int getTpmsIdFl();
+
+    void setTpmsIdFr(int tpmsIdFr);
+	void setTpmsIdRr(int tpmsIdRr);
+	void setTpmsIdRl(int tpmsIdRl);
+	void setTpmsIdFl(int tpmsIdFl);
+
 protected:
     /**
      * Pointer to the currently active presenter.

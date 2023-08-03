@@ -36,6 +36,48 @@ public:
 		model->setManualErrorChangeScreen();
 	}
 
+	int getTpmsIdFr()
+	{
+		model->getTpmsIdFr();
+	}
+
+	int getTpmsIdRr()
+	{
+		model->getTpmsIdRr();
+	}
+
+	int getTpmsIdRl()
+	{
+		model->getTpmsIdRl();
+	}
+
+	int getTpmsIdFl()
+	{
+		model->getTpmsIdFl();
+	}
+
+
+	void setTpmsIdFr(int newTpmsIdFr)
+	{
+		model->setTpmsIdFr(newTpmsIdFr);
+	}
+
+	void setTpmsIdRr(int newTpmsIdRr)
+	{
+		model->setTpmsIdRr(newTpmsIdRr);
+	}
+
+	void setTpmsIdRl(int newTpmsIdRl)
+	{
+		model->setTpmsIdRl(newTpmsIdRl);
+	}
+
+	void setTpmsIdFl(int newTpmsIdFl)
+	{
+		model->setTpmsIdFl(newTpmsIdFl);
+	}
+
+
 private:
 	SecondScreenPresenter();
 

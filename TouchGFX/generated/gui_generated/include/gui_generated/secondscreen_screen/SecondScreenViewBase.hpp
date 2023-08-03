@@ -9,9 +9,11 @@
 #include <gui/secondscreen_screen/SecondScreenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
-#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
-#include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/Button.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/containers/Slider.hpp>
+#include <touchgfx/widgets/ButtonWithLabel.hpp>
+#include <touchgfx/mixins/ClickListener.hpp>
 
 class SecondScreenViewBase : public touchgfx::View<SecondScreenPresenter>
 {
@@ -38,6 +40,31 @@ public:
         // Override and implement this function in SecondScreen
     }
 
+    virtual void tpmsIndexChanges(int value)
+    {
+        // Override and implement this function in SecondScreen
+    }
+
+    virtual void frSetIndex()
+    {
+        // Override and implement this function in SecondScreen
+    }
+
+    virtual void rrSetIndex()
+    {
+        // Override and implement this function in SecondScreen
+    }
+
+    virtual void rlSetIndex()
+    {
+        // Override and implement this function in SecondScreen
+    }
+
+    virtual void flSetIndex()
+    {
+        // Override and implement this function in SecondScreen
+    }
+
 protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
@@ -48,41 +75,38 @@ protected:
      */
     touchgfx::Box backgroundBox;
     touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger > ButtonGoToMainScreen;
-    touchgfx::TextAreaWithOneWildcard IngAngValue;
-    touchgfx::TextArea IgnAngDescriptor;
-    touchgfx::TextAreaWithOneWildcard ErrorMessage;
     touchgfx::Button nextErrorButton;
     touchgfx::Button clearErrorsBtn;
-    touchgfx::TextAreaWithOneWildcard VeValue;
-    touchgfx::TextArea VeDescriptor;
-    touchgfx::TextAreaWithOneWildcard BoostDcValue;
-    touchgfx::TextArea BoostDcDescriptior;
-    touchgfx::TextAreaWithOneWildcard BoostTrgtValue;
-    touchgfx::TextArea BoostTrgtDescriptior;
-    touchgfx::TextAreaWithOneWildcard InjctorDcValue;
-    touchgfx::TextArea InjectorDcDescriptior;
     touchgfx::TextAreaWithOneWildcard CheckEngCodeValue;
     touchgfx::TextAreaWithOneWildcard EngProtCodeValue;
+    touchgfx::ClickListener< touchgfx::Slider > TpmsIndex;
+    touchgfx::ClickListener< touchgfx::ButtonWithLabel > FrIndex;
+    touchgfx::ClickListener< touchgfx::ButtonWithLabel > RrIndex;
+    touchgfx::ClickListener< touchgfx::ButtonWithLabel > RlIndex;
+    touchgfx::ClickListener< touchgfx::ButtonWithLabel > FlIndex;
+    touchgfx::TextAreaWithOneWildcard FrIndexValue;
+    touchgfx::TextAreaWithOneWildcard RrIndexValue;
+    touchgfx::TextAreaWithOneWildcard RlIndexValue;
+    touchgfx::TextAreaWithOneWildcard FlIndexValue;
+    touchgfx::TextAreaWithOneWildcard SliderIndexvalue;
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t INGANGVALUE_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar IngAngValueBuffer[INGANGVALUE_SIZE];
-    static const uint16_t ERRORMESSAGE_SIZE = 35;
-    touchgfx::Unicode::UnicodeChar ErrorMessageBuffer[ERRORMESSAGE_SIZE];
-    static const uint16_t VEVALUE_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar VeValueBuffer[VEVALUE_SIZE];
-    static const uint16_t BOOSTDCVALUE_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar BoostDcValueBuffer[BOOSTDCVALUE_SIZE];
-    static const uint16_t BOOSTTRGTVALUE_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar BoostTrgtValueBuffer[BOOSTTRGTVALUE_SIZE];
-    static const uint16_t INJCTORDCVALUE_SIZE = 5;
-    touchgfx::Unicode::UnicodeChar InjctorDcValueBuffer[INJCTORDCVALUE_SIZE];
     static const uint16_t CHECKENGCODEVALUE_SIZE = 35;
     touchgfx::Unicode::UnicodeChar CheckEngCodeValueBuffer[CHECKENGCODEVALUE_SIZE];
     static const uint16_t ENGPROTCODEVALUE_SIZE = 35;
     touchgfx::Unicode::UnicodeChar EngProtCodeValueBuffer[ENGPROTCODEVALUE_SIZE];
+    static const uint16_t FRINDEXVALUE_SIZE = 2;
+    touchgfx::Unicode::UnicodeChar FrIndexValueBuffer[FRINDEXVALUE_SIZE];
+    static const uint16_t RRINDEXVALUE_SIZE = 2;
+    touchgfx::Unicode::UnicodeChar RrIndexValueBuffer[RRINDEXVALUE_SIZE];
+    static const uint16_t RLINDEXVALUE_SIZE = 2;
+    touchgfx::Unicode::UnicodeChar RlIndexValueBuffer[RLINDEXVALUE_SIZE];
+    static const uint16_t FLINDEXVALUE_SIZE = 2;
+    touchgfx::Unicode::UnicodeChar FlIndexValueBuffer[FLINDEXVALUE_SIZE];
+    static const uint16_t SLIDERINDEXVALUE_SIZE = 2;
+    touchgfx::Unicode::UnicodeChar SliderIndexvalueBuffer[SLIDERINDEXVALUE_SIZE];
 
 private:
 
@@ -91,12 +115,14 @@ private:
      */
     touchgfx::Callback<SecondScreenViewBase, const touchgfx::AbstractButton&> buttonCallback;
     touchgfx::Callback<SecondScreenViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
+    touchgfx::Callback<SecondScreenViewBase, const touchgfx::Slider&, int> sliderValueChangedCallback;
 
     /*
      * Callback Handler Declarations
      */
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
     void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
+    void sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value);
 
 };
 

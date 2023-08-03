@@ -140,29 +140,17 @@ void StartDefaultTask(void const * argument);
 /* USER CODE BEGIN 0 */
 
 static int rpm = 4600;
-static int map = 100;
 static int clt = 110;
 static float lambda = 0.77f;
-static float lambda_targ = 0.81f;
-
-static int vspd = 0;
 static int oil_tmp = 0;
+static int diff_tmp = 0;
 static float oil_press = 0;
-static int fuel_press = 0;
-static int iat = 0;
-static int egt = 0;
-static int egt_2 = 0;
 static int tps = 0;
-static float batt_v = 0;
-static float ing_ang = 0;
-static int emu_errors = 0;
-static int emu_protection = 0;
-static float ve = 0;
-static float boost_dc = 0;
-static int boost_trgt = 0;
-static float injector_dc = 0;
-static int check_eng_code = 0;
-static int eng_protection_code = 0;
+static int br_p = 0;
+static int tpms_id = 0;
+static int tpms_press = 0;
+static int tpms_temp = 0;
+
 
 extern xQueueHandle messageQ;
 extern xQueueHandle settingsMessageQ;
@@ -181,31 +169,18 @@ void SecondTask(void const* argument)
 		{
 			rpm = (rpm >= 8000) ? 0: rpm + 100;
 			clt = (clt >= 250) ? -40: clt + 3;
-			map = (map >= 450) ? 1: map + 6;
 			lambda = (lambda >= 1.4) ? 0.6: lambda + 0.05;
-			lambda_targ = (lambda_targ >= 1.4) ? 0.65: lambda_targ + 0.06;
 			oil_tmp = (oil_tmp >= 160) ? 1: oil_tmp + 2;
 			oil_press = (oil_press >= 12.0) ? 0.1: oil_press + 0.1;
-			fuel_press = (fuel_press >= 100) ? 1: iat + 2;
-			iat = (iat >= 100) ? 1: iat + 2;
-			egt = (egt >= 760) ? 500: egt +12;
-			egt_2 = (egt_2 >= 760) ? 500: egt_2 +12;
 			tps = (tps >= 100) ? 0: tps + 4;
-			batt_v = (batt_v >= 20.0) ? 10.0: batt_v + 0.6;
-			ing_ang = (ing_ang >= 20.0) ? 10.0: ing_ang + 0.6;
-			ve = (ve >= 21.0) ? 10.0: ve + 0.6;
-			boost_dc = (boost_dc >= 20.0) ? 10.0: boost_dc + 0.6;
-			boost_trgt = (boost_trgt >= 23) ? 10: boost_trgt + 1;
-			injector_dc = (injector_dc >= 24.0) ? 10.0: injector_dc + 0.6;
-			vspd = (vspd >= 300) ? 100: vspd + 2;
-			emu_errors = 0;
-			emu_protection = 0;
-			eng_protection_code = 0;
-			check_eng_code = 0;
+			br_p = (br_p >= 130) ? 0: br_p + 4;
+			//tpms_id = (tpms_id >= 5) ? 1: tpms_id + 1;
+			tpms_id = 3;
+			tpms_press = (tpms_press >= 100) ? 0: tpms_press + 4;
+			tpms_temp = (tpms_temp >= 100) ? 0: tpms_temp + 4;
 		}
 
-		display_values dispVals = {rpm, clt, map, lambda, lambda_targ, oil_tmp, oil_press, fuel_press, iat, egt, egt_2, tps, batt_v,
-		ing_ang, emu_errors, emu_protection, ve, boost_dc, boost_trgt, injector_dc, check_eng_code, eng_protection_code, vspd};
+		display_values dispVals = {rpm, clt, lambda, oil_tmp, diff_tmp, oil_press, tps, br_p, tpms_id, tpms_press, tpms_temp};
 	    xQueueSend(messageQ, &dispVals,0);
 		osDelay(50);
 	}
@@ -455,7 +430,7 @@ static void MX_CAN1_Init(void)
 
   /* USER CODE END CAN1_Init 1 */
   hcan1.Instance = CAN1;
-  hcan1.Init.Prescaler = 20;
+  hcan1.Init.Prescaler = 10;
   hcan1.Init.Mode = CAN_MODE_NORMAL;
   hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
   hcan1.Init.TimeSeg1 = CAN_BS1_8TQ;
@@ -523,86 +498,53 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   }
 
   /* Package one */
-  if ((RxHeader.StdId == 0x600) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
-  {
-	 uint16_t rpm_in = (RxData[0] << 0) | (RxData[1] << 8);
-	 uint8_t tps_in = RxData[2];
-	 uint8_t iat_in = RxData[3];
-	 uint16_t map_in = (RxData[4] << 0) | (RxData[5] << 8);
+  /* Package one */
+  if ((RxHeader.StdId == 0x180) && (RxHeader.IDE == CAN_ID_EXT) && (RxHeader.DLC == 8))
+     {
+	  uint16_t lambda_in = (RxData[0] << 0) | (RxData[1] << 8);
 
-	 rpm = (int)rpm_in;
-	 map = ((int)map_in*1.0f);
-	 iat = (int)iat_in;
-	 tps = (int)(((float)tps_in)*0.5f);
-	 (void)map;
-	 (void)iat;
-  }
+   	 lambda = (int)lambda_in * 0.0001f;
+     }
+   else if ((RxHeader.StdId == 0x316) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+   {
+ 	 uint16_t rpm_in = (RxData[2] << 0) | (RxData[3] << 8);
 
-  if ((RxHeader.StdId == 0x602) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
-  {
-	 uint16_t vspd_in = (RxData[0] << 0) | (RxData[1] << 8);
-	 uint8_t oil_tmp_in = RxData[3];
-	 uint8_t oil_press_in = RxData[4];
-	 uint16_t clt_in = (RxData[6] << 0) | (RxData[7] << 8);
-
-	 vspd = (int) vspd_in;
-	 oil_tmp = ((int)oil_tmp_in) * 1;
-	 oil_press = ((int)oil_press_in) * 0.0625f;
-	 clt = ((int)clt_in) * 1;
-  }
-
-  if ((RxHeader.StdId == 0x603) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
-  {
-	 uint8_t ing_ang_in = RxData[0];
-	 uint8_t lambda_in = RxData[2];
-	 uint16_t egt_1_in = (RxData[4] << 0) | (RxData[5] << 8);
-	 uint16_t egt_2_in = (RxData[6] << 0) | (RxData[7] << 8);
-
-	 ing_ang = ((float) ing_ang_in) * 0.5f;
-	 lambda = ((float)lambda_in)*0.0078125f;
-	 egt = (int)egt_1_in;
-	 egt_2 = (int)egt_2_in;
+ 	 rpm = (int)rpm_in * 0.15625f;
    }
+   else if ((RxHeader.StdId == 0x329) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+   {
+ 	 uint8_t clt_in = RxData[1];
+ 	 uint8_t tps_in = RxData[5];
 
-  if ((RxHeader.StdId == 0x604) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
-  {
-	 uint16_t batt_in = (RxData[2] << 0) | (RxData[3] << 8);
-	 uint16_t emu_errors_in = (RxData[4] << 0) | (RxData[5] << 8);
-	 float battery_voltage = ((float)batt_in)*0.027f;
-	 batt_v = battery_voltage;
-	 (void)batt_v;
-	 emu_errors = (int) emu_errors_in;
+ 	 clt = ((int)clt_in) * 0.75f - 48;
+ 	 tps = (int)(((float)tps_in) * 0.45955859375f);
+   } else if ((RxHeader.StdId == 0x545) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+   {
+ 	 uint8_t oil_tmp_in = RxData[4];
+ 	 oil_tmp = ((int)oil_tmp_in) - 48;
 
-  }
+   }
+   else if ((RxHeader.StdId == 0x640) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+   {
+	 uint16_t br_p_in =(RxData[1] << 0) | (RxData[0] << 8);
+	 uint16_t oil_press_in =(RxData[7] << 0) | (RxData[6] << 8);
+	 uint16_t diff_temp_in =(RxData[5] << 0) | (RxData[4] << 8);
 
-  if ((RxHeader.StdId == 0x500) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
-    {
-  	 uint8_t lambda_targ_in = RxData[0];
-  	 uint16_t fuel_p_d = (RxData[1] << 0) | (RxData[2] << 8);
-	 uint16_t ve_in = (RxData[3] << 0) | (RxData[4] << 8);
-	 uint8_t boost_trgt_in = RxData[5];
-	 uint8_t emu_protection_in = RxData[5];
-	 uint8_t injector_dc_in = RxData[7];
+	 br_p = (int) ((int) br_p_in * 0.05f);
+	 oil_press = (int)((int)oil_press_in) * 0.002585f;
+	 diff_tmp = (int)((int)diff_temp_in);
+   }
+   else if ((RxHeader.StdId == 0x77E) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 8))
+      {
+   	 uint8_t tpms_id_in = RxData[0];
+   	 uint16_t tpms_press_in =(RxData[1] << 0) | (RxData[2] << 8);
+   	 uint8_t tpms_temp_in = RxData[3];
 
-  	 lambda_targ = ((float)lambda_targ_in) / 100;
-  	 fuel_press = ((int)fuel_p_d);
-  	 ve = (float) ve_in;
-  	 boost_trgt = (int) boost_trgt_in;
-  	 emu_protection = (int) emu_protection_in;
-  	 injector_dc = (float) injector_dc_in;
+
+	 tpms_id = (int) tpms_id_in;
+	 tpms_press = (int) tpms_press_in;
+   	 tpms_temp = (int) tpms_temp_in;
     }
-
-  if ((RxHeader.StdId == 0x501) && (RxHeader.IDE == CAN_ID_STD) && (RxHeader.DLC == 3))
-  {
-	uint8_t eng_protection_code_in = RxData[0];
-	uint8_t check_eng_code_in = RxData[1];
-	 uint8_t boost_dc_in = RxData[2];
-
-	 eng_protection_code = (int)eng_protection_code_in;
-	 check_eng_code = (int) check_eng_code_in;
-	 boost_dc = (float) boost_dc_in;
-
-  }
 }
 
 /* USER CODE END CAN1_Init 2 */

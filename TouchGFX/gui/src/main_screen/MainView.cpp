@@ -8,20 +8,24 @@ static int rev_limit_warning = 6200;
 static int rev_limit = 9000;
 
 static int prev_rpm = 100;
-static int prev_map = 100;
 static int prev_clt = 110;
 static float prev_lambda = 0.77f;
 static float prev_lambda_targ = 0.81f;
-
 static int prev_oil_tmp = 0;
 static float prev_oil_press = 0;
-static int prev_fuel_press = 0;
-static int prev_iat = 0;
-static int prev_egt = 0;
-static int prev_egt_2 = 0;
 static int prev_tps = 0;
-static float prev_batt_v = 0;
-static int prev_vspd = 0;
+static int prev_br_p = 0;
+static int prev_diff_t = 0;
+
+static int prev_tpms_t_fr = 0;
+static int prev_tpms_t_fl = 0;
+static int prev_tpms_t_rr = 0;
+static int prev_tpms_t_rl = 0;
+
+static int prev_tpms_p_fr = 0;
+static int prev_tpms_p_fl = 0;
+static int prev_tpms_p_rr = 0;
+static int prev_tpms_p_rl = 0;
 
 MainView::MainView() {
 	// Support of larger displays for this example
@@ -153,30 +157,62 @@ void MainView::updateVal(uint8_t *newValue) {
 		RPMValue.invalidate();
 	}
 
-	if (values->map != prev_map) {
-		prev_map = values->map;
-		Unicode::snprintf(MAPValueBuffer, MAPVALUE_SIZE, "%d", values->map);
-		MAPValue.invalidate();
-	}
-
 	if (values->clt != prev_clt) {
 		prev_clt = values->clt;
 		Unicode::snprintf(CLTValueBuffer, CLTVALUE_SIZE, "%d", values->clt);
 		CLTValue.invalidate();
 	}
 
-	if (values->lambda != prev_lambda) {
-		prev_lambda = values->lambda;
-		Unicode::snprintfFloat(LambdaValueBuffer, LAMBDAVALUE_SIZE, "%.2f",
-				values->lambda);
-		LambdaValue.invalidate();
+	if (values->tpms_id == presenter->getTpmsIdFr() && values->tpms_press != prev_tpms_p_fr) {
+		prev_tpms_p_fr = values->tpms_press;
+		Unicode::snprintfFloat(TpFrBuffer, TPFR_SIZE, "%.2f",
+				(float)(values->tpms_press / (float)100));
+		TpFr.invalidate();
 	}
 
-	if (values->lambda_trgt != prev_lambda_targ) {
-		prev_lambda_targ = values->lambda_trgt;
-		Unicode::snprintfFloat(TrgtValueBuffer, TRGTVALUE_SIZE, "%.2f",
-				values->lambda_trgt);
-		TrgtValue.invalidate();
+	if (values->tpms_id == presenter->getTpmsIdFr() && values->tpms_temp != prev_tpms_t_fr) {
+		prev_tpms_t_fr = values->tpms_temp;
+			Unicode::snprintf(TtFrBuffer, TTFR_SIZE, "%d", values->tpms_temp);
+		TtFr.invalidate();
+	}
+
+	if (values->tpms_id == presenter->getTpmsIdRr() && values->tpms_press != prev_tpms_p_rr) {
+		prev_tpms_p_rr = values->tpms_press;
+			Unicode::snprintfFloat(TpRrBuffer, TPRR_SIZE, "%.2f",
+					(float)(values->tpms_press / (float)100));
+		TpRr.invalidate();
+	}
+
+	if (values->tpms_id == presenter->getTpmsIdRr() && values->tpms_temp != prev_tpms_t_rr) {
+		prev_tpms_t_rr = values->tpms_temp;
+			Unicode::snprintf(TtRrBuffer, TTRR_SIZE, "%d", values->tpms_temp);
+		TtRr.invalidate();
+	}
+
+	if (values->tpms_id == presenter->getTpmsIdRl() && values->tpms_press != prev_tpms_p_rl) {
+		prev_tpms_p_rl = values->tpms_press;
+				Unicode::snprintfFloat(TpRlBuffer, TPRL_SIZE, "%.2f",
+						(float)(values->tpms_press / (float)100));
+		TpRl.invalidate();
+	}
+
+	if (values->tpms_id == presenter->getTpmsIdRl() && values->tpms_temp != prev_tpms_t_rl) {
+			prev_tpms_t_rl = values->tpms_temp;
+				Unicode::snprintf(TtRlBuffer, TTRL_SIZE, "%d", values->tpms_temp);
+			TtRl.invalidate();
+		}
+
+	if (values->tpms_id == presenter->getTpmsIdFl() && values->tpms_press != prev_tpms_p_fl) {
+		prev_tpms_p_fl = values->tpms_press;
+					Unicode::snprintfFloat(TpFlBuffer, TPFL_SIZE, "%.2f",
+							(float)(values->tpms_press / (float)100));
+		TpFl.invalidate();
+	}
+
+	if (values->tpms_id == presenter->getTpmsIdFl() && values->tpms_temp != prev_tpms_t_fl) {
+		prev_tpms_t_fl = values->tpms_temp;
+			Unicode::snprintf(TtFlBuffer, TTFL_SIZE, "%d", (values->tpms_temp));
+		TtFl.invalidate();
 	}
 
 	if (values->oil_press != prev_oil_press) {
@@ -186,11 +222,11 @@ void MainView::updateVal(uint8_t *newValue) {
 		OILPressureValue.invalidate();
 	}
 
-	if (values->fuel_press != prev_fuel_press) {
-		prev_fuel_press = values->fuel_press;
-		Unicode::snprintf(FuelPValueBuffer, FUELPVALUE_SIZE, "%d",
-				values->fuel_press);
-		FuelPValue.invalidate();
+	if (values->diff_tmp != prev_diff_t) {
+		prev_diff_t = values->diff_tmp;
+		Unicode::snprintf(DiffTBuffer, DIFFT_SIZE, "%d",
+				values->diff_tmp);
+		DiffT.invalidate();
 	}
 
 	if (values->oil_tmp != prev_oil_tmp) {
@@ -200,23 +236,7 @@ void MainView::updateVal(uint8_t *newValue) {
 		OILTempValue.invalidate();
 	}
 
-	if (values->iat != prev_iat) {
-		prev_iat = values->iat;
-		Unicode::snprintf(IATValueBuffer, IATVALUE_SIZE, "%d", values->iat);
-		IATValue.invalidate();
-	}
 
-	if (values->egt != prev_egt) {
-		prev_egt = values->egt;
-		Unicode::snprintf(EGTValueBuffer, EGTVALUE_SIZE, "%d", values->egt);
-		EGTValue.invalidate();
-	}
-
-	if (values->egt_2 != prev_egt_2) {
-		prev_egt_2 = values->egt_2;
-		Unicode::snprintf(EGTValue2Buffer, EGTVALUE2_SIZE, "%d", values->egt_2);
-		EGTValue2.invalidate();
-	}
 
 	if (values->tps != prev_tps) {
 		prev_tps = values->tps;
@@ -227,19 +247,13 @@ void MainView::updateVal(uint8_t *newValue) {
 		TpsNumberValue.invalidate();
 	}
 
-	if (values->batt_v != prev_batt_v) {
-		prev_batt_v = values->batt_v;
-		Unicode::snprintfFloat(BatteryVoltageBuffer, BATTERYVOLTAGE_SIZE,
-				"%.2f", values->batt_v);
-		BatteryVoltage.invalidate();
+	if (values->br_p != prev_br_p) {
+		prev_br_p = values->br_p;
+		BrP.setValue(values->br_p);
+		BrP.invalidate();
+		Unicode::snprintf(BrPrValueBuffer, BRPRVALUE_SIZE, "%d", values->br_p);
+		BrPrValue.invalidate();
 	}
-
-	if (values->vspd != prev_vspd) {
-		prev_vspd = values->vspd;
-			Unicode::snprintf(KMHValueBuffer, KMHVALUE_SIZE,
-					"%d", values->vspd);
-			KMHValue.invalidate();
-		}
 
 	//Commented because of strange behavior of EMU error codes. Need USB to CAN to trace the problem.
 //	if (has_error && !presenter->getManualErrorChangeScreen()) {

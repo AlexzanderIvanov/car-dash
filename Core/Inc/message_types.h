@@ -6,29 +6,17 @@ extern "C" {
 #endif
 
 typedef struct {
-   int    rpm;
-   int    clt;
-   int    map;
-   float  lambda;
-   float  lambda_trgt;
-   int    oil_tmp;
-   float    oil_press;
-   int    fuel_press;
-   int    iat;
-   int    egt;
-   int    egt_2;
-   int	  tps;
-   float	  batt_v;
-   float ing_ang;
-   int emu_errors;
-   int emu_protection;
-   float ve;
-   float boost_dc;
-   int boost_trgt;
-   float injector_dc;
-   int check_eng_code;
-   int eng_protection_code;
-   int vspd;
+	int rpm;
+	int clt;
+	float lambda;
+	int oil_tmp;
+	int diff_tmp;
+	float oil_press;
+	int tps;
+	int br_p;
+	int tpms_id;
+	int tpms_press;
+	int tpms_temp;
 } display_values;
 
 typedef struct {

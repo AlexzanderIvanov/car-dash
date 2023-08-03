@@ -1,6 +1,14 @@
-Model.cpp:20:1:Model::Model()	16	static
-Model.cpp:26:6:void Model::tick()	16	static
-Model.cpp:39:6:void Model::saveCurrentScreenIndex(int)	16	static
-Model.cpp:44:5:int Model::getCurrentScreenIndex()	16	static
-Model.cpp:49:6:void Model::setManualErrorChangeScreen()	16	static
-Model.cpp:53:6:bool Model::getManualErrorChangeScreen()	16	static
+Model.cpp:24:1:Model::Model()	16	static
+Model.cpp:30:6:void Model::tick()	16	static
+Model.cpp:43:6:void Model::saveCurrentScreenIndex(int)	16	static
+Model.cpp:49:5:int Model::getCurrentScreenIndex()	16	static
+Model.cpp:54:5:int Model::getTpmsIdFr()	16	static
+Model.cpp:59:5:int Model::getTpmsIdRr()	16	static
+Model.cpp:64:5:int Model::getTpmsIdRl()	16	static
+Model.cpp:69:5:int Model::getTpmsIdFl()	16	static
+Model.cpp:75:6:void Model::setTpmsIdFr(int)	16	static
+Model.cpp:80:6:void Model::setTpmsIdRr(int)	16	static
+Model.cpp:85:6:void Model::setTpmsIdRl(int)	16	static
+Model.cpp:90:6:void Model::setTpmsIdFl(int)	16	static
+Model.cpp:96:6:void Model::setManualErrorChangeScreen()	16	static
+Model.cpp:100:6:bool Model::getManualErrorChangeScreen()	16	static

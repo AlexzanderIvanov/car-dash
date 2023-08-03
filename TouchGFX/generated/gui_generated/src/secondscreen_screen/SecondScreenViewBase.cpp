@@ -3,12 +3,13 @@
 /*********************************************************************************/
 #include <gui_generated/secondscreen_screen/SecondScreenViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include <texts/TextKeysAndLanguages.hpp>
 #include "BitmapDatabase.hpp"
+#include <texts/TextKeysAndLanguages.hpp>
 
 SecondScreenViewBase::SecondScreenViewBase() :
     buttonCallback(this, &SecondScreenViewBase::buttonCallbackHandler),
-    flexButtonCallback(this, &SecondScreenViewBase::flexButtonCallbackHandler)
+    flexButtonCallback(this, &SecondScreenViewBase::flexButtonCallbackHandler),
+    sliderValueChangedCallback(this, &SecondScreenViewBase::sliderValueChangedCallbackHandler)
 {
 
     backgroundBox.setPosition(0, 0, 480, 272);
@@ -21,26 +22,6 @@ SecondScreenViewBase::SecondScreenViewBase() :
     ButtonGoToMainScreen.setAlpha(0);
     ButtonGoToMainScreen.setAction(flexButtonCallback);
 
-    IngAngValue.setPosition(12, 11, 71, 42);
-    IngAngValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    IngAngValue.setLinespacing(0);
-    Unicode::snprintf(IngAngValueBuffer, INGANGVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID77).getText());
-    IngAngValue.setWildcard(IngAngValueBuffer);
-    IngAngValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID76));
-
-    IgnAngDescriptor.setXY(12, 53);
-    IgnAngDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
-    IgnAngDescriptor.setLinespacing(0);
-    IgnAngDescriptor.setTypedText(touchgfx::TypedText(T_SINGLEUSEID78));
-
-    ErrorMessage.setXY(193, 205);
-    ErrorMessage.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
-    ErrorMessage.setLinespacing(0);
-    Unicode::snprintf(ErrorMessageBuffer, ERRORMESSAGE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID80).getText());
-    ErrorMessage.setWildcard(ErrorMessageBuffer);
-    ErrorMessage.resizeToCurrentText();
-    ErrorMessage.setTypedText(touchgfx::TypedText(T_SINGLEUSEID79));
-
     nextErrorButton.setXY(256, 226);
     nextErrorButton.setVisible(false);
     nextErrorButton.setBitmaps(touchgfx::Bitmap(BITMAP_ICONFINDER_NEXT_6290417_ID), touchgfx::Bitmap(BITMAP_ICONFINDER_NEXT_6290417_ID));
@@ -50,54 +31,6 @@ SecondScreenViewBase::SecondScreenViewBase() :
     clearErrorsBtn.setVisible(false);
     clearErrorsBtn.setBitmaps(touchgfx::Bitmap(BITMAP_ICONFINDER_7_SOUND_OFF_3279057_ID), touchgfx::Bitmap(BITMAP_ICONFINDER_7_SOUND_OFF_3279057_ID));
     clearErrorsBtn.setAction(buttonCallback);
-
-    VeValue.setPosition(102, 11, 71, 42);
-    VeValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    VeValue.setLinespacing(0);
-    Unicode::snprintf(VeValueBuffer, VEVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID82).getText());
-    VeValue.setWildcard(VeValueBuffer);
-    VeValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID81));
-
-    VeDescriptor.setXY(127, 53);
-    VeDescriptor.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
-    VeDescriptor.setLinespacing(0);
-    VeDescriptor.setTypedText(touchgfx::TypedText(T_SINGLEUSEID83));
-
-    BoostDcValue.setPosition(195, 11, 71, 42);
-    BoostDcValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    BoostDcValue.setLinespacing(0);
-    Unicode::snprintf(BoostDcValueBuffer, BOOSTDCVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID85).getText());
-    BoostDcValue.setWildcard(BoostDcValueBuffer);
-    BoostDcValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID84));
-
-    BoostDcDescriptior.setXY(194, 53);
-    BoostDcDescriptior.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
-    BoostDcDescriptior.setLinespacing(0);
-    BoostDcDescriptior.setTypedText(touchgfx::TypedText(T_SINGLEUSEID86));
-
-    BoostTrgtValue.setPosition(294, 11, 71, 42);
-    BoostTrgtValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    BoostTrgtValue.setLinespacing(0);
-    Unicode::snprintf(BoostTrgtValueBuffer, BOOSTTRGTVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID88).getText());
-    BoostTrgtValue.setWildcard(BoostTrgtValueBuffer);
-    BoostTrgtValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID87));
-
-    BoostTrgtDescriptior.setXY(288, 53);
-    BoostTrgtDescriptior.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
-    BoostTrgtDescriptior.setLinespacing(0);
-    BoostTrgtDescriptior.setTypedText(touchgfx::TypedText(T_SINGLEUSEID89));
-
-    InjctorDcValue.setPosition(391, 11, 71, 42);
-    InjctorDcValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    InjctorDcValue.setLinespacing(0);
-    Unicode::snprintf(InjctorDcValueBuffer, INJCTORDCVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID91).getText());
-    InjctorDcValue.setWildcard(InjctorDcValueBuffer);
-    InjctorDcValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID90));
-
-    InjectorDcDescriptior.setXY(382, 53);
-    InjectorDcDescriptior.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 220, 0));
-    InjectorDcDescriptior.setLinespacing(0);
-    InjectorDcDescriptior.setTypedText(touchgfx::TypedText(T_SINGLEUSEID92));
 
     CheckEngCodeValue.setXY(12, 237);
     CheckEngCodeValue.setVisible(false);
@@ -117,23 +50,96 @@ SecondScreenViewBase::SecondScreenViewBase() :
     EngProtCodeValue.resizeToCurrentText();
     EngProtCodeValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID95));
 
+    TpmsIndex.setXY(418, 53);
+    TpmsIndex.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_SLIDER_VERTICAL_SMALL_SLIDER3_VERTICAL_ROUND_BACK_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_VERTICAL_SMALL_SLIDER3_VERTICAL_ROUND_FILL_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_VERTICAL_SMALL_INDICATORS_SLIDER3_VERTICAL_ROUND_NOB_ID));
+    TpmsIndex.setupVerticalSlider(7, 3, 0, 0, 125);
+    TpmsIndex.setValueRange(1, 4);
+    TpmsIndex.setValue(1);
+    TpmsIndex.setNewValueCallback(sliderValueChangedCallback);
+
+    FrIndex.setXY(222, 12);
+    FrIndex.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_SMALL_PRESSED_ID));
+    FrIndex.setLabelText(touchgfx::TypedText(T_SINGLEUSEID115));
+    FrIndex.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    FrIndex.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    FrIndex.setAction(buttonCallback);
+
+    RrIndex.setXY(222, 72);
+    RrIndex.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_SMALL_PRESSED_ID));
+    RrIndex.setLabelText(touchgfx::TypedText(T_SINGLEUSEID117));
+    RrIndex.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    RrIndex.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    RrIndex.setAction(buttonCallback);
+
+    RlIndex.setXY(222, 132);
+    RlIndex.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_SMALL_PRESSED_ID));
+    RlIndex.setLabelText(touchgfx::TypedText(T_SINGLEUSEID118));
+    RlIndex.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    RlIndex.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    RlIndex.setAction(buttonCallback);
+
+    FlIndex.setXY(222, 196);
+    FlIndex.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_SQUARE_SMALL_PRESSED_ID));
+    FlIndex.setLabelText(touchgfx::TypedText(T_SINGLEUSEID119));
+    FlIndex.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    FlIndex.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    FlIndex.setAction(buttonCallback);
+
+    FrIndexValue.setXY(367, 25);
+    FrIndexValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 221, 3));
+    FrIndexValue.setLinespacing(0);
+    Unicode::snprintf(FrIndexValueBuffer, FRINDEXVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID121).getText());
+    FrIndexValue.setWildcard(FrIndexValueBuffer);
+    FrIndexValue.resizeToCurrentText();
+    FrIndexValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID120));
+
+    RrIndexValue.setXY(367, 85);
+    RrIndexValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 221, 3));
+    RrIndexValue.setLinespacing(0);
+    Unicode::snprintf(RrIndexValueBuffer, RRINDEXVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID123).getText());
+    RrIndexValue.setWildcard(RrIndexValueBuffer);
+    RrIndexValue.resizeToCurrentText();
+    RrIndexValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID122));
+
+    RlIndexValue.setXY(367, 149);
+    RlIndexValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 221, 3));
+    RlIndexValue.setLinespacing(0);
+    Unicode::snprintf(RlIndexValueBuffer, RLINDEXVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID125).getText());
+    RlIndexValue.setWildcard(RlIndexValueBuffer);
+    RlIndexValue.resizeToCurrentText();
+    RlIndexValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID124));
+
+    FlIndexValue.setXY(367, 209);
+    FlIndexValue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 221, 3));
+    FlIndexValue.setLinespacing(0);
+    Unicode::snprintf(FlIndexValueBuffer, FLINDEXVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID127).getText());
+    FlIndexValue.setWildcard(FlIndexValueBuffer);
+    FlIndexValue.resizeToCurrentText();
+    FlIndexValue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID126));
+
+    SliderIndexvalue.setPosition(427, 18, 16, 35);
+    SliderIndexvalue.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 221, 3));
+    SliderIndexvalue.setLinespacing(0);
+    Unicode::snprintf(SliderIndexvalueBuffer, SLIDERINDEXVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID129).getText());
+    SliderIndexvalue.setWildcard(SliderIndexvalueBuffer);
+    SliderIndexvalue.setTypedText(touchgfx::TypedText(T_SINGLEUSEID128));
+
     add(backgroundBox);
     add(ButtonGoToMainScreen);
-    add(IngAngValue);
-    add(IgnAngDescriptor);
-    add(ErrorMessage);
     add(nextErrorButton);
     add(clearErrorsBtn);
-    add(VeValue);
-    add(VeDescriptor);
-    add(BoostDcValue);
-    add(BoostDcDescriptior);
-    add(BoostTrgtValue);
-    add(BoostTrgtDescriptior);
-    add(InjctorDcValue);
-    add(InjectorDcDescriptior);
     add(CheckEngCodeValue);
     add(EngProtCodeValue);
+    add(TpmsIndex);
+    add(FrIndex);
+    add(RrIndex);
+    add(RlIndex);
+    add(FlIndex);
+    add(FrIndexValue);
+    add(RrIndexValue);
+    add(RlIndexValue);
+    add(FlIndexValue);
+    add(SliderIndexvalue);
 }
 
 void SecondScreenViewBase::setupScreen()
@@ -157,6 +163,34 @@ void SecondScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&
         //Call clearErrors
         clearErrors();
     }
+    else if (&src == &FrIndex)
+    {
+        //frSetIndex
+        //When FrIndex clicked call virtual function
+        //Call frSetIndex
+        frSetIndex();
+    }
+    else if (&src == &RrIndex)
+    {
+        //rrSetIndex
+        //When RrIndex clicked call virtual function
+        //Call rrSetIndex
+        rrSetIndex();
+    }
+    else if (&src == &RlIndex)
+    {
+        //rlSetIndex
+        //When RlIndex clicked call virtual function
+        //Call rlSetIndex
+        rlSetIndex();
+    }
+    else if (&src == &FlIndex)
+    {
+        //flSetIndex
+        //When FlIndex clicked call virtual function
+        //Call flSetIndex
+        flSetIndex();
+    }
 }
 
 void SecondScreenViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
@@ -172,5 +206,16 @@ void SecondScreenViewBase::flexButtonCallbackHandler(const touchgfx::AbstractBut
         //When MoveToMainScreenBtnInteraction completed change screen to Main
         //Go to Main with screen transition towards West
         application().gotoMainScreenSlideTransitionWest();
+    }
+}
+
+void SecondScreenViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value)
+{
+    if (&src == &TpmsIndex)
+    {
+        //tmpsIndexChangeInteraction
+        //When TpmsIndex value changed call virtual function
+        //Call tpmsIndexChanges
+        tpmsIndexChanges(value);
     }
 }

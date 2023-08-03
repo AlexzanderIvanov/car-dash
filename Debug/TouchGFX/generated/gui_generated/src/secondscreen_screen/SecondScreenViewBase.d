@@ -70,9 +70,12 @@ TouchGFX/generated/gui_generated/src/secondscreen_screen/SecondScreenViewBase.o:
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/buttons/TwoWildcardTextButtonStyle.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/Slider.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/ClickListener.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp \
- ../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp \
- ../TouchGFX/generated/images/include/BitmapDatabase.hpp
+ ../TouchGFX/generated/images/include/BitmapDatabase.hpp \
+ ../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp
 
 ../TouchGFX/generated/gui_generated/include/gui_generated/secondscreen_screen/SecondScreenViewBase.hpp:
 
@@ -214,8 +217,14 @@ TouchGFX/generated/gui_generated/src/secondscreen_screen/SecondScreenViewBase.o:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
 
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/Slider.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ButtonWithLabel.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/ClickListener.hpp:
+
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp:
 
-../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp:
-
 ../TouchGFX/generated/images/include/BitmapDatabase.hpp:
+
+../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp:

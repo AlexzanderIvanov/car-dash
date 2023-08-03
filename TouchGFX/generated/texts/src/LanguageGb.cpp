@@ -10,9 +10,7 @@ TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE =
 {
     223, // T_SingleUseId7
-    463, // T_SingleUseId8
-    223, // T_SingleUseId9
-    443, // T_SingleUseId10
+    376, // T_SingleUseId8
     223, // T_SingleUseId11
     223, // T_SingleUseId12
     223, // T_SingleUseId13
@@ -22,84 +20,87 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE =
     223, // T_SingleUseId17
     223, // T_SingleUseId18
     223, // T_SingleUseId22
-    512, // T_SingleUseId23
+    376, // T_SingleUseId23
     223, // T_SingleUseId24
-    492, // T_SingleUseId25
-    476, // T_SingleUseId30
-    484, // T_SingleUseId31
-    432, // T_SingleUseId32
-    420, // T_SingleUseId33
-    413, // T_SingleUseId34
-    399, // T_SingleUseId35
+    376, // T_SingleUseId25
+    415, // T_SingleUseId30
+    411, // T_SingleUseId31
+    443, // T_SingleUseId32
+    369, // T_SingleUseId34
+    355, // T_SingleUseId35
     223, // T_SingleUseId36
-    504, // T_SingleUseId37
+    391, // T_SingleUseId37
     223, // T_SingleUseId38
-    508, // T_SingleUseId40
-    500, // T_SingleUseId41
-    496, // T_SingleUseId42
-    375, // T_SingleUseId44
-    448, // T_SingleUseId45
-    379, // T_SingleUseId46
-    453, // T_SingleUseId47
-    488, // T_SingleUseId50
+    403, // T_SingleUseId40
+    419, // T_SingleUseId42
+    352, // T_SingleUseId46
+    386, // T_SingleUseId47
+    423, // T_SingleUseId50
     223, // T_SingleUseId53
-    468, // T_SingleUseId54
-    223, // T_SingleUseId55
-    480, // T_SingleUseId56
-    458, // T_SingleUseId57
-    451, // T_SingleUseId60
-    430, // T_SingleUseId61
-    474, // T_SingleUseId62
-    518, // T_SingleUseId63
-    461, // T_SingleUseId64
-    520, // T_SingleUseId65
-    446, // T_SingleUseId66
-    522, // T_SingleUseId67
+    427, // T_SingleUseId54
+    381, // T_SingleUseId57
+    452, // T_SingleUseId60
+    474, // T_SingleUseId61
+    409, // T_SingleUseId62
+    472, // T_SingleUseId63
+    384, // T_SingleUseId64
+    470, // T_SingleUseId65
+    466, // T_SingleUseId66
+    468, // T_SingleUseId67
     223, // T_SingleUseId68
-    492, // T_SingleUseId69
-    426, // T_SingleUseId70
+    376, // T_SingleUseId69
+    395, // T_SingleUseId70
     223, // T_SingleUseId71
-    512, // T_SingleUseId72
-    406, // T_SingleUseId73
+    451, // T_SingleUseId72
+    362, // T_SingleUseId73
     223, // T_SingleUseId74
-    512, // T_SingleUseId75
-    223, // T_SingleUseId76
-    512, // T_SingleUseId77
-    391, // T_SingleUseId78
-    223, // T_SingleUseId79
-    365, // T_SingleUseId80
+    451, // T_SingleUseId75
     0, // T_COOLANT_SENSOR_FAILURE
-    365, // T_NO_ERRORS
+    342, // T_NO_ERRORS
     296, // T_KNOCKING
     259, // T_IAT_SENSOR_FAILURE
     225, // T_MAP_SENSOR_FAILURE
     278, // T_O2_SENSOR_FAILED
-    189, // T_EGT1_SESNSOR_FAILED
-    167, // T_EGT2_SENSOR_FAILED
+    167, // T_EGT1_SESNSOR_FAILED
+    189, // T_EGT2_SENSOR_FAILED
     328, // T_EGT_HIGH
     144, // T_DBW_SENSOR_FAILED
     35, // T_FPR_RELATIVE_ERROR
-    223, // T_SingleUseId81
-    512, // T_SingleUseId82
-    515, // T_SingleUseId83
-    223, // T_SingleUseId84
-    512, // T_SingleUseId85
-    382, // T_SingleUseId86
-    223, // T_SingleUseId87
-    512, // T_SingleUseId88
-    354, // T_SingleUseId89
-    223, // T_SingleUseId90
-    512, // T_SingleUseId91
-    342, // T_SingleUseId92
     65, // T_OIL_TEMPERATURE_PROTECTION
     119, // T_OIL_PRESSSURE_PROTECTION
     312, // T_CLT_PROTECTION
     93, // T_FUEL_PRESSURE_PROTECTION
     245, // T_SingleUseId93
-    472, // T_SingleUseId94
+    407, // T_SingleUseId94
     211, // T_SingleUseId95
-    472, // T_SingleUseId96
+    407, // T_SingleUseId96
     223, // T_SingleUseId97
-    492, // T_SingleUseId98
-    438  // T_SingleUseId99
+    376, // T_SingleUseId98
+    223, // T_SingleUseId99
+    376, // T_SingleUseId100
+    431, // T_SingleUseId101
+    447, // T_SingleUseId103
+    223, // T_SingleUseId104
+    376, // T_SingleUseId105
+    223, // T_SingleUseId106
+    376, // T_SingleUseId107
+    399, // T_SingleUseId108
+    439, // T_SingleUseId109
+    223, // T_SingleUseId112
+    451, // T_SingleUseId113
+    435, // T_SingleUseId114
+    463, // T_SingleUseId115
+    460, // T_SingleUseId117
+    457, // T_SingleUseId118
+    454, // T_SingleUseId119
+    223, // T_SingleUseId120
+    452, // T_SingleUseId121
+    223, // T_SingleUseId122
+    474, // T_SingleUseId123
+    223, // T_SingleUseId124
+    409, // T_SingleUseId125
+    223, // T_SingleUseId126
+    472, // T_SingleUseId127
+    223, // T_SingleUseId128
+    452  // T_SingleUseId129
 };

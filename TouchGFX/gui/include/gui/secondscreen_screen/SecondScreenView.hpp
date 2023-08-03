@@ -12,9 +12,13 @@ public:
 	virtual void setupScreen();
 	virtual void tearDownScreen();
 
-	virtual void nextError();
-	virtual void clearErrors();
 	virtual void moveToMainScreen();
+    virtual void tpmsIndexChanges(int value);
+
+    virtual void frSetIndex();
+    virtual void rrSetIndex();
+    virtual void rlSetIndex();
+    virtual void flSetIndex();
 
 	void updateVal(uint8_t *newValue);
 	void updateSettings(uint8_t *settings);

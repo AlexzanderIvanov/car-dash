@@ -35,6 +35,23 @@ public:
 		return model->getManualErrorChangeScreen();
 	}
 
+	int getTpmsIdFr() {
+		return model->getTpmsIdFr();
+	}
+
+	int getTpmsIdRr() {
+		return model->getTpmsIdRr();
+	}
+
+	int getTpmsIdRl() {
+		return model->getTpmsIdRl();
+	}
+
+	int getTpmsIdFl() {
+		return model->getTpmsIdFl();
+	}
+
+
 private:
 	MainPresenter();
 
